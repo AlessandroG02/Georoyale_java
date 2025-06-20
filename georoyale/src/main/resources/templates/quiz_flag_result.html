@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Geo Royale - Risultato</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/quiz}">Quiz</a></li>
+            <li><a th:href="@{/allenamento}">Allenamento</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1> Guess the Flag</h1>
+        
+       
+        <img th:src="${countryFlag}" th:alt="${correctAnswer}" >
+        
+        <h2>Di quale paese è questa bandiera?</h2>
+        
+      
+        <div >
+            <p><strong>Paese:</strong> <span th:text="${correctAnswer}"></span></p>
+            <p><strong>Capitale:</strong> <span th:text="${capitalName}"></span></p>
+            <p><strong>Regione:</strong> <span th:text="${regionName}"></span></p>
+        </div>
+        
+      
+        <div id="risultato">
+            <div th:if="${isCorrect}">
+                 Corretto! Questa è la bandiera di <span th:text="${correctAnswer}"></span>
+            </div>
+            <div th:unless="${isCorrect}" >
+                 Sbagliato! Questa è la bandiera di <span th:text="${correctAnswer}"></span>
+                <br>Hai risposto: <span th:text="${selectedAnswer}"></span>
+            </div>
+        </div>
+        
+        <div class="button-row">
+            <a th:href="@{/quiz_flag}"><button> Prossima Domanda</button></a>
+            <a th:href="@{/quiz}"><button>Torna ai Quiz</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

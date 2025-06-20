@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Geo Royale - Higher or Lower</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/allenamento}">Allenamento</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1> Higher or Lower</h1>
+        
+        <div th:if="${isSession != null and isSession}" >
+            <div >
+                <h3 >
+                    Confronto <span th:text="${currentQuestionNumber}">1</span> di <span th:text="${totalQuestions}">10</span>
+                </h3>
+                <div >
+                    Punteggio: <span th:text="${sessionScore}">0</span> punti
+                </div>
+            </div>
+            <div>
+              
+            </div>
+        </div>
+        
+        <h2>Quale paese ha più abitanti?</h2>
+        <p >Clicca sulla bandiera del paese che pensi abbia più abitanti!</p>
+        
+        <form method="post" th:action="@{${(isSession != null and isSession) ? '/higher_lower_session_answer' : '/higher_lower_answer'}}">
+            <input type="hidden" name="country1Code" th:value="${country1.alphaCode}">
+            <input type="hidden" name="country2Code" th:value="${country2.alphaCode}">
+            <input type="hidden" name="population1" th:value="${country1.population}">
+            <input type="hidden" name="population2" th:value="${country2.population}">
+            
+            <div class="element-row" >
+                <div >
+                    <button type="submit" name="selectedCountry" th:value="${country1.alphaCode}" 
+                          >
+                        <img th:src="${country1.flag}" th:alt="${country1.name}" 
+                            >
+                        <h3 th:text="${country1.name}"></h3>
+                        <p >
+                            Capitale: <span th:text="${country1.capital}"></span>
+                        </p>
+                    </button>
+                </div>
+                
+                <div>
+                    VS
+                </div>
+                
+                <div >
+                    <button type="submit" name="selectedCountry" th:value="${country2.alphaCode}"
+                        
+                            >
+                        <img th:src="${country2.flag}" th:alt="${country2.name}" 
+                             >
+                        <h3 th:text="${country2.name}" ></h3>
+                        <p >
+                            Capitale: <span th:text="${country2.capital}"></span>
+                        </p>
+                    </button>
+                </div>
+            </div>
+        </form>
+        
+        <div class="button-row" >
+            <a th:href="@{/quiz}"><button>← Torna ai Quiz</button></a>
+            <a th:href="@{/higher_lower}" th:if="${isSession == null or !isSession}"><button> Nuovo Confronto</button></a>
+        </div>
+        
+        <div th:if="${isSession != null and isSession}">
+            <p> Ogni risposta corretta vale <strong>15 punti</strong>! Ancora <span th:text="${totalQuestions - currentQuestionNumber + 1}">X</span> confronti.</p>
+        </div>
+    </div>
+</body>
+
+</html>

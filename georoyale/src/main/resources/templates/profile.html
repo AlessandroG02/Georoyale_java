@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Geo Royale - Profilo</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/quiz}">Quiz</a></li>
+            <li><a th:href="@{/allenamento}">Allenamento</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Il tuo Profilo</h1>
+        
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <span th:text="${user.username.substring(0,1).toUpperCase()}">U</span>
+            </div>
+            
+            <h2 class="profile-username" th:text="${user.username}">Username</h2>
+            
+            <div class="profile-points-badge">
+                <div class="profile-points-label">PUNTI TOTALI</div>
+                <div class="profile-points-value" th:text="${user.idPoint}">0</div>
+            </div>
+        </div>
+        
+        <div class="stats-grid-three">
+            <div class="stat-card quizzes">
+                <div class="stat-number" th:text="${user.totalQuizzes}">0</div>
+                <div class="stat-label">Quiz Completati</div>
+            </div>
+            
+            <div class="stat-card points">
+                <div class="stat-number" th:text="${totalPoints}">0</div>
+                <div class="stat-label">Punti Totali</div>
+            </div>
+            
+            <div class="stat-card record">
+                <div class="stat-number" th:text="${bestScore}">0</div>
+                <div class="stat-label">Record Personale</div>
+            </div>
+        </div>
+        
+        <div class="level-section">
+            <h3 class="level-title">Il tuo Livello</h3>
+            
+            <div th:if="${user.idPoint >= 150}" class="level-badge level-expert">
+                GEOGRAFO ESPERTO
+            </div>
+            
+            <div th:if="${user.idPoint >= 100 && user.idPoint < 150}" class="level-badge level-advanced">
+                ESPLORATORE ESPERTO
+            </div>
+            
+            <div th:if="${user.idPoint >= 50 && user.idPoint < 100}" class="level-badge level-traveler">
+                VIAGGIATORE
+            </div>
+            
+            <div th:if="${user.idPoint < 50}" class="level-badge level-novice">
+                ESPLORATORE NOVIZIO
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" th:style="'width: ' + ${user.idPoint % 50 * 2} + '%;'"></div>
+                </div>
+                <small class="progress-text">
+                    <span th:text="${50 - (user.idPoint % 50)}">X</span> punti al prossimo livello
+                </small>
+            </div>
+        </div>
+        
+        <div class="button-row">
+            <a th:href="@{/quiz}"><button>Nuovi Quiz</button></a>
+            <a th:href="@{/quiz/history}"><button>Cronologia</button></a>
+        </div>
+        
+        <div class="button-row">
+            <a th:href="@{/allenamento}"><button>Allenamento</button></a>
+            <a th:href="@{/logout}"><button class="logout-btn">Logout</button></a>
+        </div>
+    </div>
+</body>
+</html>

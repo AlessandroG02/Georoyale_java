@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Geo Royale - Risultato</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/quiz}">Quiz</a></li>
+            <li><a th:href="@{/allenamento}">Allenamento</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1> Higher or Lower</h1>
+    
+
+        <div id="risultato" >
+            <div th:if="${isCorrect}" >
+                 Corretto! Hai indovinato!
+            </div>
+            <div th:unless="${isCorrect}" >
+                 Sbagliato! Non è andata bene questa volta.
+            </div>
+        </div>
+        
+     
+        <div >
+            
+
+            <div >
+                <img th:src="${country1Flag}" th:alt="${country1Name}" >
+                <h3 th:text="${country1Name}" ></h3>
+                <p><strong>Popolazione:</strong><br><span th:text="${#numbers.formatDecimal(population1, 0, 'COMMA', 0, 'POINT')}" style="font-size: 1.2em; color: #9c372f; font-weight: bold;"></span> abitanti</p>
+            </div>
+            
+            
+            <div >
+                <span>VS</span>
+            </div>
+            
+            
+            <div >
+                <img th:src="${country2Flag}" th:alt="${country2Name}">
+                <h3 th:text="${country2Name}" ></h3>
+                <p><strong>Popolazione:</strong><br><span th:text="${#numbers.formatDecimal(population2, 0, 'COMMA', 0, 'POINT')}" style="font-size: 1.2em; color: #666; font-weight: bold;"></span> abitanti</p>
+            </div>
+        </div>
+        
+      
+        <div >
+            <h3 > Paese più popoloso:</h3>
+            <p >
+                <strong th:text="${winnerName}"></strong> con 
+                <strong th:text="${#numbers.formatDecimal(winnerPopulation, 0, 'COMMA', 0, 'POINT')}"></strong> abitanti
+            </p>
+            <p >
+                Differenza: <span th:text="${#numbers.formatDecimal(populationDifference, 0, 'COMMA', 0, 'POINT')}"></span> abitanti
+            </p>
+        </div>
+        
+        <div class="button-row" >
+            <a th:href="@{/higher_lower}"><button>Nuovo Confronto</button></a>
+            <a th:href="@{/quiz}"><button> Torna ai Quiz</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

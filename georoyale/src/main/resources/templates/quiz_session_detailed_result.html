@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Geo Royale - Session Results</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/quiz}">Quiz</a></li>
+            <li><a th:href="@{/allenamento}">Allenamento</a></li>
+            <li><a th:href="@{/profile}">Profilo</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1> Sessione Completata!</h1>
+        
+        <div >
+            <h2>
+                <span th:text="${quizTypeName}">Quiz</span> Session
+            </h2>
+            <div >
+                <span th:text="${finalScore}">0</span> punti
+            </div>
+            <div >
+                <span th:text="${correctAnswers}">0</span>/<span th:text="${totalQuestions}">10</span> corrette
+                (<span th:text="${percentage}">0</span>%)
+            </div>
+        </div>
+        
+        <div >
+            <div th:if="${percentage >= 90}">
+                 ECCELLENTE! Sei un vero esperto di geografia!
+            </div>
+            <div th:if="${percentage >= 70 && percentage < 90}" >
+                 OTTIMO! Conosci molto bene la geografia mondiale!
+            </div>
+            <div th:if="${percentage >= 50 && percentage < 70}">
+                 BUONO! Con un po' di allenamento puoi fare ancora meglio!
+            </div>
+            <div th:if="${percentage < 50}" >
+                 CONTINUA COSÌ! L'allenamento ti aiuterà a migliorare!
+            </div>
+        </div>
+        
+        <div >
+            <h3 > Review Completa delle 10 Domande</h3>
+            
+            <div th:each="result : ${detailedResults}" 
+                 
+                >
+                
+                <div >
+                    <div >
+                        <div  
+                             th:text="${result.questionNumber}">1</div>
+                        <div th:if="${result.correct}" >Top</div>
+                        <div th:unless="${result.correct}" >No</div>
+                    </div>
+                    
+                    <div>
+                        <img th:src="${result.country.flag}" th:alt="${result.country.name}" 
+                            >
+                        <div  
+                             th:text="${result.country.name}">Paese</div>
+                    </div>
+                    
+                    <div >
+                        <div >
+                            <span th:if="${result.quizType == 'capital'}" 
+                                  th:text="'Qual è la capitale di ' + ${result.country.name} + '?'">Domanda</span>
+                            <span th:if="${result.quizType == 'nation'}" 
+                                  th:text="${result.country.capital} + ' è la capitale di quale paese?'">Domanda</span>
+                            <span th:if="${result.quizType == 'flag'}" 
+                                  th:text="'Di quale paese è questa bandiera?'">Domanda</span>
+                            <span th:if="${result.quizType == 'continent'}" 
+                                  th:text="'In quale continente si trova ' + ${result.country.name} + '?'">Domanda</span>
+                        </div>
+                        
+                        <div >
+                            <strong > Risposta corretta:</strong> 
+                            <span th:text="${result.correctAnswer}">Corretta</span>
+                        </div>
+                        
+                        <div th:unless="${result.correct}" >
+                            <strong>✗ La tua risposta:</strong> 
+                            <span th:text="${result.userAnswer}">Sbagliata</span>
+                        </div>
+                        
+                        <div th:if="${result.correct}" >
+                            Risposta esatta! +10 punti
+                        </div>
+                    </div>
+                    
+                    <div >
+                       
+                        <div >punti</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div >
+            <div >
+                <div>
+                    <div  th:text="${finalScore}">0</div>
+                    <div >Punti Totali</div>
+                </div>
+                <div>
+                    <div th:text="${correctAnswers}">0</div>
+                    <div >Corrette</div>
+                </div>
+                <div>
+                    <div th:text="${10 - correctAnswers}">0</div>
+                    <div >Sbagliate</div>
+                </div>
+                <div>
+                    <div th:text="${percentage + '%'}">0%</div>
+                    <div >Precisione</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="button-row">
+            <a th:href="@{/quiz}"><button> Nuove Sessioni</button></a>
+            <a th:href="@{/quiz/history}"><button> Cronologia</button></a>
+        </div>
+        
+        <div class="button-row">
+            <a th:href="@{/allenamento}"><button> Allenamento</button></a>
+            <a th:href="@{/profile}"><button> Profilo</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

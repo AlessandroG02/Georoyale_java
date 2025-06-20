@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Geo Royale - Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    
+    
+    <div class="container">
+        <h1>Accedi a Geo Royale</h1>
+        <h3>Benvenuto di nuovo, esploratore!</h3>
+        
+        <form th:action="@{/login}" method="post">
+            <div >
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required 
+                       >
+            </div>
+            
+            <div >
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required 
+                      >
+            </div>
+            
+            <div th:if="${error}">
+                <p th:text="${error}">Errore di login</p>
+            </div>
+            
+            <button type="submit" >
+                Accedi
+            </button>
+        </form>
+        
+        <div >
+            <p>Non hai un account? <a th:href="@{/register}" >Registrati qui</a></p>
+        </div>
+        
+        <div class="button-row">
+            <a th:href="@{/}"><button>← Torna alla Home</button></a>
+            <a th:href="@{/allenamento}"><button>Prova l'Allenamento</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

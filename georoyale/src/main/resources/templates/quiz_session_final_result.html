@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Geo Royale - Session Result</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/quiz}">Quiz</a></li>
+            <li><a th:href="@{/allenamento}">Allenamento</a></li>
+            <li><a th:href="@{/profile}">Profilo</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1> Sessione Completata!</h1>
+        
+        <div >
+            <h2 >
+                <span th:text="${quizTypeName}">Quiz</span> Session
+            </h2>
+            <div >
+                <span th:text="${finalScore}">0</span> punti
+            </div>
+            <div >
+                <span th:text="${correctAnswers}">0</span>/<span th:text="${totalQuestions}">10</span> corrette
+                (<span th:text="${percentage}">0</span>%)
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-bottom: 30px;">
+            <div th:if="${percentage >= 90}">
+                 ECCELLENTE! Sei un vero esperto di geografia!
+            </div>
+            <div th:if="${percentage >= 70 && percentage < 90}" >
+                 OTTIMO! Conosci molto bene la geografia mondiale!
+            </div>
+            <div th:if="${percentage >= 50 && percentage < 70}" >
+                 BUONO! Con un po' di allenamento puoi fare ancora meglio!
+            </div>
+            <div th:if="${percentage < 50}">
+                 CONTINUA COSÌ! L'allenamento ti aiuterà a migliorare!
+            </div>
+        </div>
+        
+        <div>
+            <h3 > Statistiche Sessione</h3>
+            <div >
+                <div>
+                    <div th:text="${finalScore}">0</div>
+                    <div>Punti Totali</div>
+                </div>
+                <div>
+                    <div  th:text="${correctAnswers}">0</div>
+                    <div>Risposte Corrette</div>
+                </div>
+                <div>
+                    <div th:text="${totalQuestions - correctAnswers}">0</div>
+                    <div >Risposte Sbagliate</div>
+                </div>
+                <div>
+                    <div>0%</div>
+                    <div >Percentuale</div>
+                </div>
+            </div>
+        </div>
+        
+        <div >
+            <div th:if="${percentage >= 80}">
+                <strong> Fantastico!</strong> I tuoi punti sono stati salvati. Continua così!
+            </div>
+            <div th:if="${percentage >= 50 && percentage < 80}" >
+                <strong> Bene!</strong> Stai migliorando. Prova un'altra sessione per aumentare il punteggio!
+            </div>
+            <div th:if="${percentage < 50}" >
+                <strong> Non mollare!</strong> L'allenamento è la chiave del successo. Riprova!
+            </div>
+        </div>
+        
+        <div class="button-row">
+            <a th:href="@{/quiz}"><button> Nuove Sessioni</button></a>
+            <a th:href="@{/quiz/history}"><button> Cronologia</button></a>
+        </div>
+        
+        <div class="button-row">
+            <a th:href="@{/allenamento}"><button> Allenamento</button></a>
+            <a th:href="@{/profile}"><button> Profilo</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

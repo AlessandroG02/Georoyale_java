@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Geo Royale</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            
+            
+            <li sec:authorize="isAuthenticated()"><a th:href="@{/quiz}">Quiz</a></li>
+            
+            
+            
+            <li sec:authorize="isAuthenticated()"><a th:href="@{/profile}">Profilo</a></li>
+            <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+            
+            
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Benvenuto in Allenamento!</h1>
+       
+        
+        <div class="element-row">
+            <a th:href="@{/allenamento_capitale}"><button>Indovina la capitale</button></a>
+            <a th:href="@{/allenamento_bandiera}"><button>Indovina la bandiera</button></a>
+        </div>
+        
+        <div sec:authorize="!isAuthenticated()" >
+            <h3 > Vuoi di più?</h3>
+            <p>L'allenamento è gratuito per tutti, ma per accedere ai <strong>Quiz completi</strong> e al tuo <strong>profilo personale</strong> devi registrarti!</p>
+            <div class="button-row">
+                <a th:href="@{/register}"><button>Registrati Gratis</button></a>
+                <a th:href="@{/login}"><button>Accedi</button></a>
+            </div>
+        </div>
+        
+        <div sec:authorize="isAuthenticated()">
+            <h3> Hai accesso completo!</h3>
+            <div class="button-row">
+                <a th:href="@{/quiz}"><button>Vai ai Quiz Completi</button></a>
+                <a th:href="@{/profile}"><button>Il Mio Profilo</button></a>
+            </div>
+        </div>
+        
+        <div class="button-row" >
+            <a th:href="@{/}"><button>← Torna alla Home</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

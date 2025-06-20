@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Geo Royale - Guess the Flag</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/allenamento}">Allenamento</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1> Guess the Flag</h1>
+
+      <div th:if="${isSession != null and isSession}" >
+          <div >
+              <h3 >
+                  Domanda <span th:text="${currentQuestionNumber}">1</span> di <span th:text="${totalQuestions}">10</span>
+              </h3>
+              <div >
+                  Punteggio: <span th:text="${sessionScore}">0</span> punti
+              </div>
+          </div>
+          <div>       
+      </div>
+
+      <img th:src="${countryFlag}" alt="Flag to guess" />
+
+      <h2>Di quale paese è questa bandiera?</h2>
+
+    
+      <form method="post" th:action="@{${(isSession != null and isSession) ? '/quiz_flag_session_answer' : '/quiz_flag_answer'}}">
+        <input type="hidden" name="countryCode" th:value="${countryCode}" />
+        <input type="hidden" name="correctAnswer" th:value="${correctCountry}" />
+
+        <div class="element-row" >
+          <div th:each="option, iterStat : ${options}">
+            <button type="submit" name="selectedAnswer" th:value="${option.name}" 
+                    class="capitale">
+              <span th:text="${iterStat.index + 1} + ') ' + ${option.name}"></span>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="button-row" >
+        <a th:href="@{/quiz}"><button> Torna ai Quiz</button></a>
+        <a th:href="@{/quiz_flag}" th:if="${isSession == null or !isSession}"><button> Nuova Domanda</button></a>
+      </div>
+
+      <div th:if="${isSession != null and isSession}" >
+          <p> Ogni risposta corretta vale <strong>10 punti</strong>! Ancora <span th:text="${totalQuestions - currentQuestionNumber + 1}">X</span> domande.</p>
+      </div>
+    </div>
+  </body>
+</html>

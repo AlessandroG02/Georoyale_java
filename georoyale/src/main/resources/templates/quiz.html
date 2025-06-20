@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Geo Royale - Quiz</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        
+        <li><a th:href="@{/allenamento}">Allenamento</a></li>
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/profile}">Profilo</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1> Scegli il tuo Quiz!</h1>
+      <h2>Metti alla prova le tue conoscenze geografiche</h2>
+
+      <div>
+        <h3 > Quiz Sessioni (10 domande)</h3>
+        <p >Completa 10 domande e ottieni un punteggio finale!</p>
+        
+        <div class="element-row">
+          <a th:href="@{/quiz_capital_session}"><button > Capital Session</button></a>
+          <a th:href="@{/quiz_nation_session}"><button> Nation Session</button></a>
+        </div>
+        
+        <div class="element-row">
+          <a th:href="@{/quiz_flag_session}"><button> Flag Session</button></a>
+          <a th:href="@{/quiz_continent_session}"><button> Continent Session</button></a>
+        </div>
+        
+        <div class="element-row">
+          <a th:href="@{/higher_lower_session}"><button > Higher or Lower Session</button></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Geo Royale - Risultato</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/quiz}">Quiz</a></li>
+            <li><a th:href="@{/allenamento}">Allenamento</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1> Guess the Capital</h1>
+        
+      
+        <img th:src="${countryFlag}" th:alt="${countryName}" >
+        
+        <h2>Qual è la capitale di <span th:text="${countryName}" ></span>?</h2>
+        
+      
+        <div id="risultato" ></div>
+            <div th:if="${isCorrect}">
+                 Corretto! La capitale di <span th:text="${countryName}"></span> è <span th:text="${correctAnswer}"></span>
+            </div>
+            <div th:unless="${isCorrect}" >
+                 Sbagliato! La capitale di <span th:text="${countryName}"></span> è <span th:text="${correctAnswer}"></span>
+                <br>Hai risposto: <span th:text="${selectedAnswer}"></span>
+            </div>
+        </div>
+        
+        <div class="button-row" style="margin-top: 30px;">
+            <a th:href="@{/quiz_capital}"><button> Prossima Domanda</button></a>
+            <a th:href="@{/quiz}"><button>← Torna ai Quiz</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

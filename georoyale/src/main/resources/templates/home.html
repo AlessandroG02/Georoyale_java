@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Royale</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            
+            
+            <li sec:authorize="isAuthenticated()"><a th:href="@{/quiz}">Quiz</a></li>
+            <li sec:authorize="isAuthenticated()"><a th:href="@{/profile}">Profilo</a></li>
+            <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+            
+           
+            
+            
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <img src="img/logo.png" alt="">
+        <h1>Esplora il mondo!</h1>
+        <h2>Vivi tra le luci pulsanti di Las Vegas e i tramonti silenziosi di Santorini.</h2>
+        
+        <div sec:authorize="!isAuthenticated()">
+            <h3>Accedi o registrati per giocare</h3>
+            <div class="button-row">
+                <a th:href="@{/login}"><button>Accedi</button></a>
+                <a th:href="@{/register}"><button>Registrati</button></a>
+            </div>
+            <h3>Oppure prova la modalità Allenamento</h3>
+            <a th:href="@{/allenamento}"><button>Allenamento</button></a>
+        </div>
+        
+        <div sec:authorize="isAuthenticated()">
+            <h3>Benvenuto, <span sec:authentication="name">Utente</span>!</h3>
+            <p>Ora puoi accedere a tutte le funzionalità di Geo Royale!</p>
+            
+            <div class="button-row">
+                <a th:href="@{/quiz}"><button> Quiz con Punteggio</button></a>
+                <a th:href="@{/allenamento}"><button> Allenamento</button></a>
+            </div>
+            
+            <div class="button-row">
+                <a th:href="@{/profile}"><button> Il Mio Profilo</button></a>
+                <a th:href="@{/quiz/history}"><button> Cronologia Quiz</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Geo Royale - Registrazione</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    
+    
+    <div class="container">
+        <h1>Unisciti a Geo Royale</h1>
+        <h3>Inizia la tua avventura geografica!</h3>
+        
+        <form th:action="@{/register}" method="post">
+            <div >
+                <label for="username" >Username:</label>
+                <input type="text" id="username" name="username" required minlength="3" maxlength="25"
+                       
+                       placeholder="Scegli un username (3-25 caratteri)">
+            </div>
+            
+            <div >
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required minlength="6"
+                      
+                       placeholder="Minimo 6 caratteri">
+            </div>
+            
+            <div >
+                <label for="confirmPassword" >Conferma Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required
+                       
+                       placeholder="Ripeti la password">
+            </div>
+            
+            <div th:if="${error}" >
+                <p th:text="${error}">Errore nella registrazione</p>
+            </div>
+            
+            <div th:if="${success}" >
+                <p th:text="${success}">Registrazione completata!</p>
+            </div>
+            
+            <button type="submit" >
+                Registrati
+            </button>
+        </form>
+        
+        <div >
+            <p>Hai già un account? <a th:href="@{/login}" >Accedi qui</a></p>
+        </div>
+        
+        <div class="button-row" >
+            <a th:href="@{/}"><button>← Torna alla Home</button></a>
+            <a th:href="@{/allenamento}"><button>Prova l'Allenamento</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

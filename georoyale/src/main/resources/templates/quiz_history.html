@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Geo Royale - Cronologia Quiz</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/allenamento}">Allenamento</a></li>
+            <li><a th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1> Cronologia Quiz</h1>
+        
+        <div >
+            <h3 > Le tue statistiche</h3>
+            <div >
+                <div>
+                    <div >0</div>
+                    <div>Punti Totali</div>
+                </div>
+                <div>
+                    <div  th:text="${maxScore ?: 0}">0</div>
+                    <div >Record Personale</div>
+                </div>
+                <div>
+                    <div th:text="${totalQuizzes ?: 0}">0</div>
+                    <div>Quiz Completati</div>
+                </div>
+            </div>
+        </div>
+        
+        <div th:if="${history != null && !history.isEmpty()}">
+            <h3> I tuoi quiz recenti:</h3>
+            <div th:each="quiz : ${history}" >
+                <div>
+                    <div >
+                        <span th:text="${quiz.totPoint}">0</span> punti
+                    </div>
+                    <div>
+                        <span th:text="${#temporals.format(quiz.dataPoint, 'dd/MM/yyyy HH:mm')}">Data</span>
+                    </div>
+                </div>
+                <div >
+                    <div th:if="${quiz.totPoint == maxScore && quiz.totPoint > 0}" 
+                         >
+                         RECORD
+                    </div>
+                    <div th:if="${quiz.totPoint >= 15}" 
+                         >
+                        ECCELLENTE
+                    </div>
+                    <div th:if="${quiz.totPoint == 10}" 
+                         >
+                        BUONO
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div th:if="${history == null || history.isEmpty()}" >
+            <h3 >Nessun quiz completato</h3>
+            <p >Inizia a giocare ai quiz per vedere i tuoi punteggi qui!</p>
+            <div >
+                <a th:href="@{/quiz}"><button> Inizia a Giocare</button></a>
+            </div>
+        </div>
+        
+        <div class="button-row" >
+            <a th:href="@{/quiz}"><button> Nuovi Quiz</button></a>
+            <a th:href="@{/profile}"><button> Profilo</button></a>
+        </div>
+        
+        <div class="button-row">
+            <a th:href="@{/}"><button>← Home</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

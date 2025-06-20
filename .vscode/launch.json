@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GeoroyaleApplication<georoyale>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.georoyale.rapelli.georoyale.GeoroyaleApplication",
+            "projectName": "georoyale",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

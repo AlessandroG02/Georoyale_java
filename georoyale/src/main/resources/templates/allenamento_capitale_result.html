@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Geo Royale - Risultato</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/quiz}">Quiz</a></li>
+            <li><a th:href="@{/allenamento}">Allenamento</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Benvenuto in Allenamento!</h1>
+        <h2>Qual è la capitale di <span th:text="${countryName}"></span>?</h2>
+        
+        
+        <div style="margin: 20px 0; font-weight: bold;">
+            <div th:if="${isCorrect}" >
+                 Corretto! La capitale di <span th:text="${countryName}"></span> è <span th:text="${correctAnswer}"></span>
+            </div>
+            <div th:unless="${isCorrect}" >
+                 Sbagliato! La capitale di <span th:text="${countryName}"></span> è <span th:text="${correctAnswer}"></span>
+                <br>Hai risposto: <span th:text="${selectedAnswer}"></span>
+            </div>
+        </div>
+        
+        <div class="button-row" >
+            <a th:href="@{/allenamento_capitale}"><button> Prossima Domanda</button></a>
+            <a th:href="@{/allenamento}"><button> Torna all'Allenamento</button></a>
+        </div>
+    </div>
+</body>
+
+</html>
