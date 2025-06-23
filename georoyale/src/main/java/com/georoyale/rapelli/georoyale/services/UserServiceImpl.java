@@ -17,14 +17,39 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-public User createUser(String username, String password) {
-    User user = new User();
-    user.setUsername(username);
-    user.setPassword(passwordEncoder.encode(password));
-    user.setIdPoint(1); // Usa l'id_point esistente nella tabella points
-    
-    return userRepo.save(user);
-}
+    public User createUser(String username, String password) {
+        try {
+            System.out.println("=== CREAZIONE UTENTE ===");
+            System.out.println("Username: " + username);
+            System.out.println("Password length: " + password.length());
+            
+            if (usernameExists(username)) {
+                throw new RuntimeException("Username già esistente: " + username);
+            }
+            
+            if (username == null || username.trim().isEmpty()) {
+                throw new RuntimeException("Username non può essere vuoto");
+            }
+            
+            if (password == null || password.length() < 6) {
+                throw new RuntimeException("Password deve essere almeno 6 caratteri");
+            }
+            
+            User user = new User();
+            user.setUsername(username.trim());
+            user.setPassword(passwordEncoder.encode(password));
+            user.setIdPoint(0); 
+            
+            User savedUser = userRepo.save(user);
+            System.out.println(" Utente creato con successo! ID: " + savedUser.getId());
+            return savedUser;
+            
+        } catch (Exception e) {
+            System.err.println(" Errore nella creazione utente: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Errore nella registrazione: " + e.getMessage());
+        }
+    }
 
     @Override
     public User findByUsername(String username) {

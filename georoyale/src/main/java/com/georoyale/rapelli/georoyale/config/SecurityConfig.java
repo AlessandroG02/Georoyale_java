@@ -21,7 +21,9 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/", "/login", "/register", "/allenamento/**", "/quiz/**", "/css/**", "/img/**", "/flags/**", "/api/**").permitAll()
+                .requestMatchers("/", "/login", "/register", "/allenamento/**", "/quiz/**", 
+                               "/css/**", "/img/**", "/flags/**", "/api/**", 
+                               "/h2-console/**").permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
@@ -34,7 +36,11 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/")
                 .permitAll()
             )
-            .csrf(csrf -> csrf.disable()); // Per semplicità, in produzione valuta se abilitare CSRF
+            .csrf(csrf -> csrf
+                .ignoringRequestMatchers("/h2-console/**")
+                .disable())
+            .headers(headers -> headers
+                .frameOptions(frameOptions -> frameOptions.sameOrigin()));
             
         return http.build();
     }

@@ -1,0 +1,1448 @@
+2025-06-23 09:55:43.612303+02:00 jdbc[16]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:235)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:229)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 97 more
+2025-06-23 09:56:13.226771+02:00 jdbc[18]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:139)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:368)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:205)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:483)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:101)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.boot.jdbc.EmbeddedDatabaseConnection.isEmbedded(EmbeddedDatabaseConnection.java:166)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateDefaultDdlAutoProvider.getDefaultDdlAuto(HibernateDefaultDdlAutoProvider.java:42)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration.lambda$getVendorProperties$1(HibernateJpaConfiguration.java:149)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings.getDdlAuto(HibernateSettings.java:41)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.determineDdlAuto(HibernateProperties.java:120)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.getAdditionalProperties(HibernateProperties.java:89)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.determineHibernateProperties(HibernateProperties.java:82)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration.getVendorProperties(HibernateJpaConfiguration.java:150)
+	at org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration.buildJpaProperties(JpaBaseConfiguration.java:131)
+	at org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder$Builder.build(EntityManagerFactoryBuilder.java:304)
+	at org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration.entityManagerFactory(JpaBaseConfiguration.java:146)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:171)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:88)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:168)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at com.georoyale.rapelli.georoyale.GeoroyaleApplication.main(GeoroyaleApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 51 more
+2025-06-23 09:56:13.228773+02:00 jdbc[18]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:85)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:135)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:235)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:229)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:139)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:368)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:205)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:483)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:101)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.boot.jdbc.EmbeddedDatabaseConnection.isEmbedded(EmbeddedDatabaseConnection.java:166)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateDefaultDdlAutoProvider.getDefaultDdlAuto(HibernateDefaultDdlAutoProvider.java:42)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration.lambda$getVendorProperties$1(HibernateJpaConfiguration.java:149)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings.getDdlAuto(HibernateSettings.java:41)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.determineDdlAuto(HibernateProperties.java:120)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.getAdditionalProperties(HibernateProperties.java:89)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties.determineHibernateProperties(HibernateProperties.java:82)
+	at org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration.getVendorProperties(HibernateJpaConfiguration.java:150)
+	at org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration.buildJpaProperties(JpaBaseConfiguration.java:131)
+	at org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder$Builder.build(EntityManagerFactoryBuilder.java:304)
+	at org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration.entityManagerFactory(JpaBaseConfiguration.java:146)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:171)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:88)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:168)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at com.georoyale.rapelli.georoyale.GeoroyaleApplication.main(GeoroyaleApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 51 more
+2025-06-23 09:57:44.533799+02:00 jdbc[31]: java.lang.Exception: Open Stack Trace
+	at org.h2.util.CloseWatcher.register(CloseWatcher.java:85)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:135)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:235)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:229)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:139)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:368)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:205)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:483)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:101)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:52)
+	at org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer.runScripts(DataSourceScriptDatabaseInitializer.java:87)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:146)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:108)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applySchemaScripts(AbstractScriptDatabaseInitializer.java:98)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:76)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at com.georoyale.rapelli.georoyale.GeoroyaleApplication.main(GeoroyaleApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 45 more
+2025-06-23 09:57:44.547800+02:00 jdbc[31]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "USERS" because "CONSTRAINT_8C" depends on it; SQL statement:
+DROP TABLE IF EXISTS `users` [90107-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:108)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:133)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139)
+	at org.h2.command.Command.executeUpdate(Command.java:304)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:261)
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254)
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:54)
+	at org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer.runScripts(DataSourceScriptDatabaseInitializer.java:87)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:146)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:108)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applySchemaScripts(AbstractScriptDatabaseInitializer.java:98)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:76)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at com.georoyale.rapelli.georoyale.GeoroyaleApplication.main(GeoroyaleApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2025-06-23 09:58:16.538579+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "USERS" because "CONSTRAINT_8C" depends on it; SQL statement:
+DROP TABLE IF EXISTS `users` [90107-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:108)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:133)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139)
+	at org.h2.command.Command.executeUpdate(Command.java:304)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:261)
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254)
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:54)
+	at org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer.runScripts(DataSourceScriptDatabaseInitializer.java:87)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:146)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:108)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applySchemaScripts(AbstractScriptDatabaseInitializer.java:98)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:76)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at com.georoyale.rapelli.georoyale.GeoroyaleApplication.main(GeoroyaleApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2025-06-23 09:58:46.782105+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "USERS" because "CONSTRAINT_8C" depends on it; SQL statement:
+DROP TABLE IF EXISTS `users` [90107-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:108)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:133)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139)
+	at org.h2.command.Command.executeUpdate(Command.java:304)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.springframework.jdbc.datasource.init.ScriptUtils.executeSqlScript(ScriptUtils.java:261)
+	at org.springframework.jdbc.datasource.init.ResourceDatabasePopulator.populate(ResourceDatabasePopulator.java:254)
+	at org.springframework.jdbc.datasource.init.DatabasePopulatorUtils.execute(DatabasePopulatorUtils.java:54)
+	at org.springframework.boot.jdbc.init.DataSourceScriptDatabaseInitializer.runScripts(DataSourceScriptDatabaseInitializer.java:87)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.runScripts(AbstractScriptDatabaseInitializer.java:146)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applyScripts(AbstractScriptDatabaseInitializer.java:108)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.applySchemaScripts(AbstractScriptDatabaseInitializer.java:98)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.initializeDatabase(AbstractScriptDatabaseInitializer.java:76)
+	at org.springframework.boot.sql.init.AbstractScriptDatabaseInitializer.afterPropertiesSet(AbstractScriptDatabaseInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1362)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1351)
+	at com.georoyale.rapelli.georoyale.GeoroyaleApplication.main(GeoroyaleApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2025-06-23 10:04:56.046047+02:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "ALPHA3CODE" not found; SQL statement:
+-- INSERT dei paesi per Geo Royale
+-- Copia e incolla questo nel H2 Console
+
+INSERT INTO countries (alpha2Code, alpha3Code, area, capital, name, population, region, subregion) VALUES
+('AF', 'AFG', 652230, 'Kabul', 'Afghanistan', 38928341, 'Asia', 'Southern Asia'),
+('AL', 'ALB', 28748, 'Tirana', 'Albania', 2837743, 'Europe', 'Southern Europe'),
+('DZ', 'DZA', 2381741, 'Algiers', 'Algeria', 43851043, 'Africa', 'Northern Africa'),
+('AO', 'AGO', 1246700, 'Luanda', 'Angola', 32866268, 'Africa', 'Middle Africa'),
+('AR', 'ARG', 2780400, 'Buenos Aires', 'Argentina', 45376763, 'Americas', 'South America'),
+('AM', 'ARM', 29743, 'Yerevan', 'Armenia', 2963234, 'Asia', 'Western Asia'),
+('AU', 'AUS', 7692024, 'Canberra', 'Australia', 25687041, 'Oceania', 'Australia and New Zealand'),
+('AT', 'AUT', 83871, 'Vienna', 'Austria', 8917205, 'Europe', 'Western Europe'),
+('AZ', 'AZE', 86600, 'Baku', 'Azerbaijan', 10110116, 'Asia', 'Western Asia'),
+('BH', 'BHR', 765, 'Manama', 'Bahrain', 1701583, 'Asia', 'Western Asia'),
+('BD', 'BGD', 147570, 'Dhaka', 'Bangladesh', 164689383, 'Asia', 'Southern Asia'),
+('BY', 'BLR', 207600, 'Minsk', 'Belarus', 9398861, 'Europe', 'Eastern Europe'),
+('BE', 'BEL', 30528, 'Brussels', 'Belgium', 11555997, 'Europe', 'Western Europe'),
+('BZ', 'BLZ', 22966, 'Belmopan', 'Belize', 397621, 'Americas', 'Central America'),
+('BJ', 'BEN', 112622, 'Porto-Novo', 'Benin', 12123198, 'Africa', 'Western Africa'),
+('BT', 'BTN', 38394, 'Thimphu', 'Bhutan', 771612, 'Asia', 'Southern Asia'),
+('BO', 'BOL', 1098581, 'Sucre', 'Bolivia (Plurinational State of)', 11673029, 'Americas', 'South America'),
+('BA', 'BIH', 51209, 'Sarajevo', 'Bosnia and Herzegovina', 3280815, 'Europe', 'Southern Europe'),
+('BW', 'BWA', 582000, 'Gaborone', 'Botswana', 2351625, 'Africa', 'Southern Africa'),
+('BR', 'BRA', 8515767, 'Brasília', 'Brazil', 212559409, 'Americas', 'South America'),
+('BG', 'BGR', 110879, 'Sofia', 'Bulgaria', 6927288, 'Europe', 'Eastern Europe'),
+('BF', 'BFA', 272967, 'Ouagadougou', 'Burkina Faso', 20903278, 'Africa', 'Western Africa'),
+('BI', 'BDI', 27834, 'Gitega', 'Burundi', 11890781, 'Africa', 'Eastern Africa'),
+('KH', 'KHM', 181035, 'Phnom Penh', 'Cambodia', 16718971, 'Asia', 'South-Eastern Asia'),
+('CM', 'CMR', 475442, 'Yaoundé', 'Cameroon', 26545864, 'Africa', 'Middle Africa'),
+('CA', 'CAN', 9984670, 'Ottawa', 'Canada', 38005238, 'Americas', 'Northern America'),
+('CV', 'CPV', 4033, 'Praia', 'Cabo Verde', 555988, 'Africa', 'Western Africa'),
+('CF', 'CAF', 622984, 'Bangui', 'Central African Republic', 4829764, 'Africa', 'Middle Africa'),
+('TD', 'TCD', 1284000, 'N''Djamena', 'Chad', 16425859, 'Africa', 'Middle Africa'),
+('CL', 'CHL', 756102, 'Santiago', 'Chile', 19116209, 'Americas', 'South America'),
+('CN', 'CHN', 9640011, 'Beijing', 'China', 1402112000, 'Asia', 'Eastern Asia'),
+('CO', 'COL', 1141748, 'Bogotá', 'Colombia', 50882884, 'Americas', 'South America'),
+('KM', 'COM', 1862, 'Moroni', 'Comoros', 869595, 'Africa', 'Eastern Africa'),
+('CG', 'COG', 342000, 'Brazzaville', 'Congo', 5518092, 'Africa', 'Middle Africa'),
+('CR', 'CRI', 51100, 'San José', 'Costa Rica', 5094114, 'Americas', 'Central America'),
+('HR', 'HRV', 56594, 'Zagreb', 'Croatia', 4047200, 'Europe', 'Southern Europe'),
+('CU', 'CUB', 109884, 'Havana', 'Cuba', 11326616, 'Americas', 'Caribbean'),
+('CY', 'CYP', 9251, 'Nicosia', 'Cyprus', 1207361, 'Europe', 'Southern Europe'),
+('CZ', 'CZE', 78865, 'Prague', 'Czech Republic', 10698896, 'Europe', 'Eastern Europe'),
+('DK', 'DNK', 43094, 'Copenhagen', 'Denmark', 5831404, 'Europe', 'Northern Europe'),
+('DJ', 'DJI', 23200, 'Djibouti', 'Djibouti', 988002, 'Africa', 'Eastern Africa'),
+('DO', 'DOM', 48671, 'Santo Domingo', 'Dominican Republic', 10847904, 'Americas', 'Caribbean'),
+('EC', 'ECU', 276841, 'Quito', 'Ecuador', 17643060, 'Americas', 'South America'),
+('EG', 'EGY', 1002450, 'Cairo', 'Egypt', 102334403, 'Africa', 'Northern Africa'),
+('SV', 'SLV', 21041, 'San Salvador', 'El Salvador', 6486201, 'Americas', 'Central America'),
+('GQ', 'GNQ', 28051, 'Malabo', 'Equatorial Guinea', 1402985, 'Africa', 'Middle Africa'),
+('EE', 'EST', 45227, 'Tallinn', 'Estonia', 1331057, 'Europe', 'Northern Europe'),
+('ET', 'ETH', 1104300, 'Addis Ababa', 'Ethiopia', 114963583, 'Africa', 'Eastern Africa'),
+('FJ', 'FJI', 18272, 'Suva', 'Fiji', 896444, 'Oceania', 'Melanesia'),
+('FI', 'FIN', 338424, 'Helsinki', 'Finland', 5530719, 'Europe', 'Northern Europe'),
+('FR', 'FRA', 640679, 'Paris', 'France', 67391582, 'Europe', 'Western Europe'),
+('GA', 'GAB', 267668, 'Libreville', 'Gabon', 2225728, 'Africa', 'Middle Africa'),
+('GE', 'GEO', 69700, 'Tbilisi', 'Georgia', 3714000, 'Asia', 'Western Asia'),
+('DE', 'DEU', 357114, 'Berlin', 'Germany', 83240525, 'Europe', 'Western Europe'),
+('GH', 'GHA', 238533, 'Accra', 'Ghana', 31072945, 'Africa', 'Western Africa'),
+('GR', 'GRC', 131990, 'Athens', 'Greece', 10715549, 'Europe', 'Southern Europe'),
+('GT', 'GTM', 108889, 'Guatemala City', 'Guatemala', 16858333, 'Americas', 'Central America'),
+('GN', 'GIN', 245857, 'Conakry', 'Guinea', 13132792, 'Africa', 'Western Africa'),
+('GW', 'GNB', 36125, 'Bissau', 'Guinea-Bissau', 1967998, 'Africa', 'Western Africa'),
+('GY', 'GUY', 214969, 'Georgetown', 'Guyana', 786559, 'Americas', 'South America'),
+('HT', 'HTI', 27750, 'Port-au-Prince', 'Haiti', 11402533, 'Americas', 'Caribbean'),
+('VA', 'VAT', 0, 'Vatican City', 'Vatican City', 451, 'Europe', 'Southern Europe'),
+('HN', 'HND', 112492, 'Tegucigalpa', 'Honduras', 9904608, 'Americas', 'Central America'),
+('HK', 'HKG', 1104, 'City of Victoria', 'Hong Kong', 7481800, 'Asia', 'Eastern Asia'),
+('HU', 'HUN', 93028, 'Budapest', 'Hungary', 9749763, 'Europe', 'Eastern Europe'),
+('IS', 'ISL', 103000, 'Reykjavík', 'Iceland', 366425, 'Europe', 'Northern Europe'),
+('IN', 'IND', 3287590, 'New Delhi', 'India', 1380004385, 'Asia', 'Southern Asia'),
+('ID', 'IDN', 1904569, 'Jakarta', 'Indonesia', 273523621, 'Asia', 'South-Eastern Asia'),
+('CI', 'CIV', 322463, 'Yamoussoukro', 'Côte d''Ivoire', 26378275, 'Africa', 'Western Africa'),
+('IR', 'IRN', 1648195, 'Tehran', 'Iran (Islamic Republic of)', 83992953, 'Asia', 'Southern Asia'),
+('IQ', 'IRQ', 438317, 'Baghdad', 'Iraq', 40222503, 'Asia', 'Western Asia'),
+('IE', 'IRL', 70273, 'Dublin', 'Ireland', 4994724, 'Europe', 'Northern Europe'),
+('IL', 'ISR', 20770, 'Jerusalem', 'Israel', 9216900, 'Asia', 'Western Asia'),
+('IT', 'ITA', 301336, 'Rome', 'Italy', 59554023, 'Europe', 'Southern Europe'),
+('JM', 'JAM', 10991, 'Kingston', 'Jamaica', 2961161, 'Americas', 'Caribbean'),
+('JP', 'JPN', 377930, 'Tokyo', 'Japan', 125836021, 'Asia', 'Eastern Asia'),
+('JO', 'JOR', 89342, 'Amman', 'Jordan', 10203140, 'Asia', 'Western Asia'),
+('KZ', 'KAZ', 2724900, 'Nur-Sultan', 'Kazakhstan', 18754440, 'Asia', 'Central Asia'),
+('KE', 'KEN', 580367, 'Nairobi', 'Kenya', 53771300, 'Africa', 'Eastern Africa'),
+('KW', 'KWT', 17818, 'Kuwait City', 'Kuwait', 4270563, 'Asia', 'Western Asia'),
+('KG', 'KGZ', 199951, 'Bishkek', 'Kyrgyzstan', 6591600, 'Asia', 'Central Asia'),
+('LA', 'LAO', 236800, 'Vientiane', 'Lao People''s Democratic Republic', 7275556, 'Asia', 'South-Eastern Asia'),
+('LV', 'LVA', 64559, 'Riga', 'Latvia', 1901548, 'Europe', 'Northern Europe'),
+('LB', 'LBN', 10452, 'Beirut', 'Lebanon', 6825442, 'Asia', 'Western Asia'),
+('LS', 'LSO', 30355, 'Maseru', 'Lesotho', 2142252, 'Africa', 'Southern Africa'),
+('LR', 'LBR', 111369, 'Monrovia', 'Liberia', 5057677, 'Africa', 'Western Africa'),
+('LY', 'LBY', 1759540, 'Tripoli', 'Libya', 6871287, 'Africa', 'Northern Africa'),
+('LT', 'LTU', 65300, 'Vilnius', 'Lithuania', 2794700, 'Europe', 'Northern Europe'),
+('LU', 'LUX', 2586, 'Luxembourg', 'Luxembourg', 632275, 'Europe', 'Western Europe'),
+('MK', 'MKD', 25713, 'Skopje', 'North Macedonia', 2083380, 'Europe', 'Southern Europe'),
+('MG', 'MDG', 587041, 'Antananarivo', 'Madagascar', 27691019, 'Africa', 'Eastern Africa'),
+('MW', 'MWI', 118484, 'Lilongwe', 'Malawi', 19129955, 'Africa', 'Eastern Africa'),
+('MY', 'MYS', 330803, 'Kuala Lumpur', 'Malaysia', 32365998, 'Asia', 'South-Eastern Asia'),
+('MV', 'MDV', 300, 'Malé', 'Maldives', 540542, 'Asia', 'Southern Asia'),
+('ML', 'MLI', 1240192, 'Bamako', 'Mali', 20250834, 'Africa', 'Western Africa'),
+('MT', 'MLT', 316, 'Valletta', 'Malta', 525285, 'Europe', 'Southern Europe'),
+('MR', 'MRT', 1030700, 'Nouakchott', 'Mauritania', 4649660, 'Africa', 'Western Africa'),
+('MU', 'MUS', 2040, 'Port Louis', 'Mauritius', 1265740, 'Africa', 'Eastern Africa'),
+('MX', 'MEX', 1964375, 'Mexico City', 'Mexico', 128932753, 'Americas', 'Central America'),
+('MD', 'MDA', 33846, 'Chișinău', 'Moldova (Republic of)', 2617820, 'Europe', 'Eastern Europe'),
+('MN', 'MNG', 1564110, 'Ulan Bator', 'Mongolia', 3278292, 'Asia', 'Eastern Asia'),
+('ME', 'MNE', 13812, 'Podgorica', 'Montenegro', 621718, 'Europe', 'Southern Europe'),
+('MA', 'MAR', 446550, 'Rabat', 'Morocco', 36910558, 'Africa', 'Northern Africa'),
+('MZ', 'MOZ', 801590, 'Maputo', 'Mozambique', 31255435, 'Africa', 'Eastern Africa'),
+('MM', 'MMR', 676578, 'Naypyidaw', 'Myanmar', 54409794, 'Asia', 'South-Eastern Asia'),
+('NA', 'NAM', 825615, 'Windhoek', 'Namibia', 2540916, 'Africa', 'Southern Africa'),
+('NP', 'NPL', 147181, 'Kathmandu', 'Nepal', 29136808, 'Asia', 'Southern Asia'),
+('NL', 'NLD', 41850, 'Amsterdam', 'Netherlands', 17441139, 'Europe', 'Western Europe'),
+('NZ', 'NZL', 270467, 'Wellington', 'New Zealand', 5084300, 'Oceania', 'Australia and New Zealand'),
+('NI', 'NIC', 130373, 'Managua', 'Nicaragua', 6624554, 'Americas', 'Central America'),
+('NE', 'NER', 1267000, 'Niamey', 'Niger', 24206636, 'Africa', 'Western Africa'),
+('NG', 'NGA', 923768, 'Abuja', 'Nigeria', 206139587, 'Africa', 'Western Africa'),
+('KP', 'PRK', 120538, 'Pyongyang', 'Korea (Democratic People''s Republic of)', 25778815, 'Asia', 'Eastern Asia'),
+('NO', 'NOR', 323802, 'Oslo', 'Norway', 5379475, 'Europe', 'Northern Europe'),
+('OM', 'OMN', 309500, 'Muscat', 'Oman', 5106622, 'Asia', 'Western Asia'),
+('PK', 'PAK', 881912, 'Islamabad', 'Pakistan', 220892331, 'Asia', 'Southern Asia'),
+('PA', 'PAN', 75417, 'Panama City', 'Panama', 4314768, 'Americas', 'Central America'),
+('PG', 'PNG', 462840, 'Port Moresby', 'Papua New Guinea', 8947027, 'Oceania', 'Melanesia'),
+('PY', 'PRY', 406752, 'Asunción', 'Paraguay', 7132530, 'Americas', 'South America'),
+('PE', 'PER', 1285216, 'Lima', 'Peru', 32971846, 'Americas', 'South America'),
+('PH', 'PHL', 342353, 'Manila', 'Philippines', 109581085, 'Asia', 'South-Eastern Asia'),
+('PL', 'POL', 312679, 'Warsaw', 'Poland', 37950802, 'Europe', 'Eastern Europe'),
+('PT', 'PRT', 92090, 'Lisbon', 'Portugal', 10305564, 'Europe', 'Southern Europe'),
+('QA', 'QAT', 11586, 'Doha', 'Qatar', 2881060, 'Asia', 'Western Asia'),
+('RO', 'ROU', 238391, 'Bucharest', 'Romania', 19286123, 'Europe', 'Eastern Europe'),
+('RU', 'RUS', 17124442, 'Moscow', 'Russian Federation', 144104080, 'Europe', 'Eastern Europe'),
+('RW', 'RWA', 26338, 'Kigali', 'Rwanda', 12952209, 'Africa', 'Eastern Africa'),
+('LC', 'LCA', 616, 'Castries', 'Saint Lucia', 183629, 'Americas', 'Caribbean'),
+('ST', 'STP', 964, 'São Tomé', 'Sao Tome and Principe', 219161, 'Africa', 'Middle Africa'),
+('SA', 'SAU', 2149690, 'Riyadh', 'Saudi Arabia', 34813867, 'Asia', 'Western Asia'),
+('SN', 'SEN', 196722, 'Dakar', 'Senegal', 16743930, 'Africa', 'Western Africa'),
+('RS', 'SRB', 88361, 'Belgrade', 'Serbia', 6908224, 'Europe', 'Southern Europe'),
+('SC', 'SYC', 452, 'Victoria', 'Seychelles', 98462, 'Africa', 'Eastern Africa'),
+('SL', 'SLE', 71740, 'Freetown', 'Sierra Leone', 7976985, 'Africa', 'Western Africa'),
+('SG', 'SGP', 710, 'Singapore', 'Singapore', 5685807, 'Asia', 'South-Eastern Asia'),
+('SK', 'SVK', 49037, 'Bratislava', 'Slovakia', 5458827, 'Europe', 'Eastern Europe'),
+('SI', 'SVN', 20273, 'Ljubljana', 'Slovenia', 2100126, 'Europe', 'Southern Europe'),
+('SO', 'SOM', 637657, 'Mogadishu', 'Somalia', 15893219, 'Africa', 'Eastern Africa'),
+('ZA', 'ZAF', 1221037, 'Pretoria', 'South Africa', 59308690, 'Africa', 'Southern Africa'),
+('KR', 'KOR', 100210, 'Seoul', 'Korea (Republic of)', 51780579, 'Asia', 'Eastern Asia'),
+('SS', 'SSD', 619745, 'Juba', 'South Sudan', 11193729, 'Africa', 'Middle Africa'),
+('ES', 'ESP', 505992, 'Madrid', 'Spain', 47351567, 'Europe', 'Southern Europe'),
+('LK', 'LKA', 65610, 'Sri Jayawardenepura Kotte', 'Sri Lanka', 21919000, 'Asia', 'Southern Asia'),
+('SD', 'SDN', 1886068, 'Khartoum', 'Sudan', 43849269, 'Africa', 'Northern Africa'),
+('SR', 'SUR', 163820, 'Paramaribo', 'Suriname', 586634, 'Americas', 'South America'),
+('SZ', 'SWZ', 17364, 'Mbabane', 'Eswatini', 1160164, 'Africa', 'Southern Africa'),
+('SE', 'SWE', 450295, 'Stockholm', 'Sweden', 10353442, 'Europe', 'Northern Europe'),
+('CH', 'CHE', 41284, 'Bern', 'Switzerland', 8636896, 'Europe', 'Western Europe'),
+('SY', 'SYR', 185180, 'Damascus', 'Syrian Arab Republic', 17500657, 'Asia', 'Western Asia'),
+('TW', 'TWN', 36193, 'Taipei', 'Taiwan', 23503349, 'Asia', 'Eastern Asia'),
+('TJ', 'TJK', 143100, 'Dushanbe', 'Tajikistan', 9537642, 'Asia', 'Central Asia'),
+('TZ', 'TZA', 945087, 'Dodoma', 'Tanzania, United Republic of', 59734213, 'Africa', 'Eastern Africa'),
+('TH', 'THA', 513120, 'Bangkok', 'Thailand', 69799978, 'Asia', 'South-Eastern Asia'),
+('TL', 'TLS', 14874, 'Dili', 'Timor-Leste', 1318442, 'Asia', 'South-Eastern Asia'),
+('TG', 'TGO', 56785, 'Lomé', 'Togo', 8278737, 'Africa', 'Western Africa'),
+('TT', 'TTO', 5130, 'Port of Spain', 'Trinidad and Tobago', 1399491, 'Americas', 'Caribbean'),
+('TN', 'TUN', 163610, 'Tunis', 'Tunisia', 11818618, 'Africa', 'Northern Africa'),
+('TR', 'TUR', 783562, 'Ankara', 'Turkey', 84339067, 'Asia', 'Western Asia'),
+('TM', 'TKM', 488100, 'Ashgabat', 'Turkmenistan', 6031187, 'Asia', 'Central Asia'),
+('UG', 'UGA', 241550, 'Kampala', 'Uganda', 45741000, 'Africa', 'Eastern Africa'),
+('UA', 'UKR', 603700, 'Kyiv', 'Ukraine', 44134693, 'Europe', 'Eastern Europe'),
+('AE', 'ARE', 83600, 'Abu Dhabi', 'United Arab Emirates', 9890400, 'Asia', 'Western Asia'),
+('US', 'USA', 9629091, 'Washington, D.C.', 'United States of America', 329484123, 'Americas', 'Northern America'),
+('UY', 'URY', 181034, 'Montevideo', 'Uruguay', 3473727, 'Americas', 'South America'),
+('UZ', 'UZB', 447400, 'Tashkent', 'Uzbekistan', 34232050, 'Asia', 'Central Asia'),
+('VE', 'VEN', 916445, 'Caracas', 'Venezuela (Bolivarian Republic of)', 28435943, 'Americas', 'South America'),
+('VN', 'VNM', 331212, 'Hanoi', 'Vietnam', 97338583, 'Asia', 'South-Eastern Asia'),
+('YE', 'YEM', 527968, 'Sana''a', 'Yemen', 29825968, 'Asia', 'Western Asia'),
+('ZM', 'ZMB', 752612, 'Lusaka', 'Zambia', 18383956, 'Africa', 'Eastern Africa'),
+('ZW', 'ZWE', 390757, 'Harare', 'Zimbabwe', 14862927, 'Africa', 'Eastern Africa') [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:786)
+	at org.h2.command.Parser.parseColumn(Parser.java:1171)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1156)
+	at org.h2.command.Parser.parseInsert(Parser.java:1530)
+	at org.h2.command.Parser.parsePrepared(Parser.java:698)
+	at org.h2.command.Parser.parse(Parser.java:581)
+	at org.h2.command.Parser.parse(Parser.java:556)
+	at org.h2.command.Parser.prepareCommand(Parser.java:484)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:235)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:229)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2025-06-23 10:05:43.113030+02:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "ALPHA3CODE" not found; SQL statement:
+INSERT INTO countries (alpha2Code, alpha3Code, area, capital, name, population, region, subregion) VALUES
+('AF', 'AFG', 652230, 'Kabul', 'Afghanistan', 38928341, 'Asia', 'Southern Asia'),
+('AL', 'ALB', 28748, 'Tirana', 'Albania', 2837743, 'Europe', 'Southern Europe'),
+('DZ', 'DZA', 2381741, 'Algiers', 'Algeria', 43851043, 'Africa', 'Northern Africa'),
+('AO', 'AGO', 1246700, 'Luanda', 'Angola', 32866268, 'Africa', 'Middle Africa'),
+('AR', 'ARG', 2780400, 'Buenos Aires', 'Argentina', 45376763, 'Americas', 'South America'),
+('AM', 'ARM', 29743, 'Yerevan', 'Armenia', 2963234, 'Asia', 'Western Asia'),
+('AU', 'AUS', 7692024, 'Canberra', 'Australia', 25687041, 'Oceania', 'Australia and New Zealand'),
+('AT', 'AUT', 83871, 'Vienna', 'Austria', 8917205, 'Europe', 'Western Europe'),
+('AZ', 'AZE', 86600, 'Baku', 'Azerbaijan', 10110116, 'Asia', 'Western Asia'),
+('BH', 'BHR', 765, 'Manama', 'Bahrain', 1701583, 'Asia', 'Western Asia'),
+('BD', 'BGD', 147570, 'Dhaka', 'Bangladesh', 164689383, 'Asia', 'Southern Asia'),
+('BY', 'BLR', 207600, 'Minsk', 'Belarus', 9398861, 'Europe', 'Eastern Europe'),
+('BE', 'BEL', 30528, 'Brussels', 'Belgium', 11555997, 'Europe', 'Western Europe'),
+('BZ', 'BLZ', 22966, 'Belmopan', 'Belize', 397621, 'Americas', 'Central America'),
+('BJ', 'BEN', 112622, 'Porto-Novo', 'Benin', 12123198, 'Africa', 'Western Africa'),
+('BT', 'BTN', 38394, 'Thimphu', 'Bhutan', 771612, 'Asia', 'Southern Asia'),
+('BO', 'BOL', 1098581, 'Sucre', 'Bolivia (Plurinational State of)', 11673029, 'Americas', 'South America'),
+('BA', 'BIH', 51209, 'Sarajevo', 'Bosnia and Herzegovina', 3280815, 'Europe', 'Southern Europe'),
+('BW', 'BWA', 582000, 'Gaborone', 'Botswana', 2351625, 'Africa', 'Southern Africa'),
+('BR', 'BRA', 8515767, 'Brasília', 'Brazil', 212559409, 'Americas', 'South America'),
+('BG', 'BGR', 110879, 'Sofia', 'Bulgaria', 6927288, 'Europe', 'Eastern Europe'),
+('BF', 'BFA', 272967, 'Ouagadougou', 'Burkina Faso', 20903278, 'Africa', 'Western Africa'),
+('BI', 'BDI', 27834, 'Gitega', 'Burundi', 11890781, 'Africa', 'Eastern Africa'),
+('KH', 'KHM', 181035, 'Phnom Penh', 'Cambodia', 16718971, 'Asia', 'South-Eastern Asia'),
+('CM', 'CMR', 475442, 'Yaoundé', 'Cameroon', 26545864, 'Africa', 'Middle Africa'),
+('CA', 'CAN', 9984670, 'Ottawa', 'Canada', 38005238, 'Americas', 'Northern America'),
+('CV', 'CPV', 4033, 'Praia', 'Cabo Verde', 555988, 'Africa', 'Western Africa'),
+('CF', 'CAF', 622984, 'Bangui', 'Central African Republic', 4829764, 'Africa', 'Middle Africa'),
+('TD', 'TCD', 1284000, 'N''Djamena', 'Chad', 16425859, 'Africa', 'Middle Africa'),
+('CL', 'CHL', 756102, 'Santiago', 'Chile', 19116209, 'Americas', 'South America'),
+('CN', 'CHN', 9640011, 'Beijing', 'China', 1402112000, 'Asia', 'Eastern Asia'),
+('CO', 'COL', 1141748, 'Bogotá', 'Colombia', 50882884, 'Americas', 'South America'),
+('KM', 'COM', 1862, 'Moroni', 'Comoros', 869595, 'Africa', 'Eastern Africa'),
+('CG', 'COG', 342000, 'Brazzaville', 'Congo', 5518092, 'Africa', 'Middle Africa'),
+('CR', 'CRI', 51100, 'San José', 'Costa Rica', 5094114, 'Americas', 'Central America'),
+('HR', 'HRV', 56594, 'Zagreb', 'Croatia', 4047200, 'Europe', 'Southern Europe'),
+('CU', 'CUB', 109884, 'Havana', 'Cuba', 11326616, 'Americas', 'Caribbean'),
+('CY', 'CYP', 9251, 'Nicosia', 'Cyprus', 1207361, 'Europe', 'Southern Europe'),
+('CZ', 'CZE', 78865, 'Prague', 'Czech Republic', 10698896, 'Europe', 'Eastern Europe'),
+('DK', 'DNK', 43094, 'Copenhagen', 'Denmark', 5831404, 'Europe', 'Northern Europe'),
+('DJ', 'DJI', 23200, 'Djibouti', 'Djibouti', 988002, 'Africa', 'Eastern Africa'),
+('DO', 'DOM', 48671, 'Santo Domingo', 'Dominican Republic', 10847904, 'Americas', 'Caribbean'),
+('EC', 'ECU', 276841, 'Quito', 'Ecuador', 17643060, 'Americas', 'South America'),
+('EG', 'EGY', 1002450, 'Cairo', 'Egypt', 102334403, 'Africa', 'Northern Africa'),
+('SV', 'SLV', 21041, 'San Salvador', 'El Salvador', 6486201, 'Americas', 'Central America'),
+('GQ', 'GNQ', 28051, 'Malabo', 'Equatorial Guinea', 1402985, 'Africa', 'Middle Africa'),
+('EE', 'EST', 45227, 'Tallinn', 'Estonia', 1331057, 'Europe', 'Northern Europe'),
+('ET', 'ETH', 1104300, 'Addis Ababa', 'Ethiopia', 114963583, 'Africa', 'Eastern Africa'),
+('FJ', 'FJI', 18272, 'Suva', 'Fiji', 896444, 'Oceania', 'Melanesia'),
+('FI', 'FIN', 338424, 'Helsinki', 'Finland', 5530719, 'Europe', 'Northern Europe'),
+('FR', 'FRA', 640679, 'Paris', 'France', 67391582, 'Europe', 'Western Europe'),
+('GA', 'GAB', 267668, 'Libreville', 'Gabon', 2225728, 'Africa', 'Middle Africa'),
+('GE', 'GEO', 69700, 'Tbilisi', 'Georgia', 3714000, 'Asia', 'Western Asia'),
+('DE', 'DEU', 357114, 'Berlin', 'Germany', 83240525, 'Europe', 'Western Europe'),
+('GH', 'GHA', 238533, 'Accra', 'Ghana', 31072945, 'Africa', 'Western Africa'),
+('GR', 'GRC', 131990, 'Athens', 'Greece', 10715549, 'Europe', 'Southern Europe'),
+('GT', 'GTM', 108889, 'Guatemala City', 'Guatemala', 16858333, 'Americas', 'Central America'),
+('GN', 'GIN', 245857, 'Conakry', 'Guinea', 13132792, 'Africa', 'Western Africa'),
+('GW', 'GNB', 36125, 'Bissau', 'Guinea-Bissau', 1967998, 'Africa', 'Western Africa'),
+('GY', 'GUY', 214969, 'Georgetown', 'Guyana', 786559, 'Americas', 'South America'),
+('HT', 'HTI', 27750, 'Port-au-Prince', 'Haiti', 11402533, 'Americas', 'Caribbean'),
+('VA', 'VAT', 0, 'Vatican City', 'Vatican City', 451, 'Europe', 'Southern Europe'),
+('HN', 'HND', 112492, 'Tegucigalpa', 'Honduras', 9904608, 'Americas', 'Central America'),
+('HK', 'HKG', 1104, 'City of Victoria', 'Hong Kong', 7481800, 'Asia', 'Eastern Asia'),
+('HU', 'HUN', 93028, 'Budapest', 'Hungary', 9749763, 'Europe', 'Eastern Europe'),
+('IS', 'ISL', 103000, 'Reykjavík', 'Iceland', 366425, 'Europe', 'Northern Europe'),
+('IN', 'IND', 3287590, 'New Delhi', 'India', 1380004385, 'Asia', 'Southern Asia'),
+('ID', 'IDN', 1904569, 'Jakarta', 'Indonesia', 273523621, 'Asia', 'South-Eastern Asia'),
+('CI', 'CIV', 322463, 'Yamoussoukro', 'Côte d''Ivoire', 26378275, 'Africa', 'Western Africa'),
+('IR', 'IRN', 1648195, 'Tehran', 'Iran (Islamic Republic of)', 83992953, 'Asia', 'Southern Asia'),
+('IQ', 'IRQ', 438317, 'Baghdad', 'Iraq', 40222503, 'Asia', 'Western Asia'),
+('IE', 'IRL', 70273, 'Dublin', 'Ireland', 4994724, 'Europe', 'Northern Europe'),
+('IL', 'ISR', 20770, 'Jerusalem', 'Israel', 9216900, 'Asia', 'Western Asia'),
+('IT', 'ITA', 301336, 'Rome', 'Italy', 59554023, 'Europe', 'Southern Europe'),
+('JM', 'JAM', 10991, 'Kingston', 'Jamaica', 2961161, 'Americas', 'Caribbean'),
+('JP', 'JPN', 377930, 'Tokyo', 'Japan', 125836021, 'Asia', 'Eastern Asia'),
+('JO', 'JOR', 89342, 'Amman', 'Jordan', 10203140, 'Asia', 'Western Asia'),
+('KZ', 'KAZ', 2724900, 'Nur-Sultan', 'Kazakhstan', 18754440, 'Asia', 'Central Asia'),
+('KE', 'KEN', 580367, 'Nairobi', 'Kenya', 53771300, 'Africa', 'Eastern Africa'),
+('KW', 'KWT', 17818, 'Kuwait City', 'Kuwait', 4270563, 'Asia', 'Western Asia'),
+('KG', 'KGZ', 199951, 'Bishkek', 'Kyrgyzstan', 6591600, 'Asia', 'Central Asia'),
+('LA', 'LAO', 236800, 'Vientiane', 'Lao People''s Democratic Republic', 7275556, 'Asia', 'South-Eastern Asia'),
+('LV', 'LVA', 64559, 'Riga', 'Latvia', 1901548, 'Europe', 'Northern Europe'),
+('LB', 'LBN', 10452, 'Beirut', 'Lebanon', 6825442, 'Asia', 'Western Asia'),
+('LS', 'LSO', 30355, 'Maseru', 'Lesotho', 2142252, 'Africa', 'Southern Africa'),
+('LR', 'LBR', 111369, 'Monrovia', 'Liberia', 5057677, 'Africa', 'Western Africa'),
+('LY', 'LBY', 1759540, 'Tripoli', 'Libya', 6871287, 'Africa', 'Northern Africa'),
+('LT', 'LTU', 65300, 'Vilnius', 'Lithuania', 2794700, 'Europe', 'Northern Europe'),
+('LU', 'LUX', 2586, 'Luxembourg', 'Luxembourg', 632275, 'Europe', 'Western Europe'),
+('MK', 'MKD', 25713, 'Skopje', 'North Macedonia', 2083380, 'Europe', 'Southern Europe'),
+('MG', 'MDG', 587041, 'Antananarivo', 'Madagascar', 27691019, 'Africa', 'Eastern Africa'),
+('MW', 'MWI', 118484, 'Lilongwe', 'Malawi', 19129955, 'Africa', 'Eastern Africa'),
+('MY', 'MYS', 330803, 'Kuala Lumpur', 'Malaysia', 32365998, 'Asia', 'South-Eastern Asia'),
+('MV', 'MDV', 300, 'Malé', 'Maldives', 540542, 'Asia', 'Southern Asia'),
+('ML', 'MLI', 1240192, 'Bamako', 'Mali', 20250834, 'Africa', 'Western Africa'),
+('MT', 'MLT', 316, 'Valletta', 'Malta', 525285, 'Europe', 'Southern Europe'),
+('MR', 'MRT', 1030700, 'Nouakchott', 'Mauritania', 4649660, 'Africa', 'Western Africa'),
+('MU', 'MUS', 2040, 'Port Louis', 'Mauritius', 1265740, 'Africa', 'Eastern Africa'),
+('MX', 'MEX', 1964375, 'Mexico City', 'Mexico', 128932753, 'Americas', 'Central America'),
+('MD', 'MDA', 33846, 'Chișinău', 'Moldova (Republic of)', 2617820, 'Europe', 'Eastern Europe'),
+('MN', 'MNG', 1564110, 'Ulan Bator', 'Mongolia', 3278292, 'Asia', 'Eastern Asia'),
+('ME', 'MNE', 13812, 'Podgorica', 'Montenegro', 621718, 'Europe', 'Southern Europe'),
+('MA', 'MAR', 446550, 'Rabat', 'Morocco', 36910558, 'Africa', 'Northern Africa'),
+('MZ', 'MOZ', 801590, 'Maputo', 'Mozambique', 31255435, 'Africa', 'Eastern Africa'),
+('MM', 'MMR', 676578, 'Naypyidaw', 'Myanmar', 54409794, 'Asia', 'South-Eastern Asia'),
+('NA', 'NAM', 825615, 'Windhoek', 'Namibia', 2540916, 'Africa', 'Southern Africa'),
+('NP', 'NPL', 147181, 'Kathmandu', 'Nepal', 29136808, 'Asia', 'Southern Asia'),
+('NL', 'NLD', 41850, 'Amsterdam', 'Netherlands', 17441139, 'Europe', 'Western Europe'),
+('NZ', 'NZL', 270467, 'Wellington', 'New Zealand', 5084300, 'Oceania', 'Australia and New Zealand'),
+('NI', 'NIC', 130373, 'Managua', 'Nicaragua', 6624554, 'Americas', 'Central America'),
+('NE', 'NER', 1267000, 'Niamey', 'Niger', 24206636, 'Africa', 'Western Africa'),
+('NG', 'NGA', 923768, 'Abuja', 'Nigeria', 206139587, 'Africa', 'Western Africa'),
+('KP', 'PRK', 120538, 'Pyongyang', 'Korea (Democratic People''s Republic of)', 25778815, 'Asia', 'Eastern Asia'),
+('NO', 'NOR', 323802, 'Oslo', 'Norway', 5379475, 'Europe', 'Northern Europe'),
+('OM', 'OMN', 309500, 'Muscat', 'Oman', 5106622, 'Asia', 'Western Asia'),
+('PK', 'PAK', 881912, 'Islamabad', 'Pakistan', 220892331, 'Asia', 'Southern Asia'),
+('PA', 'PAN', 75417, 'Panama City', 'Panama', 4314768, 'Americas', 'Central America'),
+('PG', 'PNG', 462840, 'Port Moresby', 'Papua New Guinea', 8947027, 'Oceania', 'Melanesia'),
+('PY', 'PRY', 406752, 'Asunción', 'Paraguay', 7132530, 'Americas', 'South America'),
+('PE', 'PER', 1285216, 'Lima', 'Peru', 32971846, 'Americas', 'South America'),
+('PH', 'PHL', 342353, 'Manila', 'Philippines', 109581085, 'Asia', 'South-Eastern Asia'),
+('PL', 'POL', 312679, 'Warsaw', 'Poland', 37950802, 'Europe', 'Eastern Europe'),
+('PT', 'PRT', 92090, 'Lisbon', 'Portugal', 10305564, 'Europe', 'Southern Europe'),
+('QA', 'QAT', 11586, 'Doha', 'Qatar', 2881060, 'Asia', 'Western Asia'),
+('RO', 'ROU', 238391, 'Bucharest', 'Romania', 19286123, 'Europe', 'Eastern Europe'),
+('RU', 'RUS', 17124442, 'Moscow', 'Russian Federation', 144104080, 'Europe', 'Eastern Europe'),
+('RW', 'RWA', 26338, 'Kigali', 'Rwanda', 12952209, 'Africa', 'Eastern Africa'),
+('LC', 'LCA', 616, 'Castries', 'Saint Lucia', 183629, 'Americas', 'Caribbean'),
+('ST', 'STP', 964, 'São Tomé', 'Sao Tome and Principe', 219161, 'Africa', 'Middle Africa'),
+('SA', 'SAU', 2149690, 'Riyadh', 'Saudi Arabia', 34813867, 'Asia', 'Western Asia'),
+('SN', 'SEN', 196722, 'Dakar', 'Senegal', 16743930, 'Africa', 'Western Africa'),
+('RS', 'SRB', 88361, 'Belgrade', 'Serbia', 6908224, 'Europe', 'Southern Europe'),
+('SC', 'SYC', 452, 'Victoria', 'Seychelles', 98462, 'Africa', 'Eastern Africa'),
+('SL', 'SLE', 71740, 'Freetown', 'Sierra Leone', 7976985, 'Africa', 'Western Africa'),
+('SG', 'SGP', 710, 'Singapore', 'Singapore', 5685807, 'Asia', 'South-Eastern Asia'),
+('SK', 'SVK', 49037, 'Bratislava', 'Slovakia', 5458827, 'Europe', 'Eastern Europe'),
+('SI', 'SVN', 20273, 'Ljubljana', 'Slovenia', 2100126, 'Europe', 'Southern Europe'),
+('SO', 'SOM', 637657, 'Mogadishu', 'Somalia', 15893219, 'Africa', 'Eastern Africa'),
+('ZA', 'ZAF', 1221037, 'Pretoria', 'South Africa', 59308690, 'Africa', 'Southern Africa'),
+('KR', 'KOR', 100210, 'Seoul', 'Korea (Republic of)', 51780579, 'Asia', 'Eastern Asia'),
+('SS', 'SSD', 619745, 'Juba', 'South Sudan', 11193729, 'Africa', 'Middle Africa'),
+('ES', 'ESP', 505992, 'Madrid', 'Spain', 47351567, 'Europe', 'Southern Europe'),
+('LK', 'LKA', 65610, 'Sri Jayawardenepura Kotte', 'Sri Lanka', 21919000, 'Asia', 'Southern Asia'),
+('SD', 'SDN', 1886068, 'Khartoum', 'Sudan', 43849269, 'Africa', 'Northern Africa'),
+('SR', 'SUR', 163820, 'Paramaribo', 'Suriname', 586634, 'Americas', 'South America'),
+('SZ', 'SWZ', 17364, 'Mbabane', 'Eswatini', 1160164, 'Africa', 'Southern Africa'),
+('SE', 'SWE', 450295, 'Stockholm', 'Sweden', 10353442, 'Europe', 'Northern Europe'),
+('CH', 'CHE', 41284, 'Bern', 'Switzerland', 8636896, 'Europe', 'Western Europe'),
+('SY', 'SYR', 185180, 'Damascus', 'Syrian Arab Republic', 17500657, 'Asia', 'Western Asia'),
+('TW', 'TWN', 36193, 'Taipei', 'Taiwan', 23503349, 'Asia', 'Eastern Asia'),
+('TJ', 'TJK', 143100, 'Dushanbe', 'Tajikistan', 9537642, 'Asia', 'Central Asia'),
+('TZ', 'TZA', 945087, 'Dodoma', 'Tanzania, United Republic of', 59734213, 'Africa', 'Eastern Africa'),
+('TH', 'THA', 513120, 'Bangkok', 'Thailand', 69799978, 'Asia', 'South-Eastern Asia'),
+('TL', 'TLS', 14874, 'Dili', 'Timor-Leste', 1318442, 'Asia', 'South-Eastern Asia'),
+('TG', 'TGO', 56785, 'Lomé', 'Togo', 8278737, 'Africa', 'Western Africa'),
+('TT', 'TTO', 5130, 'Port of Spain', 'Trinidad and Tobago', 1399491, 'Americas', 'Caribbean'),
+('TN', 'TUN', 163610, 'Tunis', 'Tunisia', 11818618, 'Africa', 'Northern Africa'),
+('TR', 'TUR', 783562, 'Ankara', 'Turkey', 84339067, 'Asia', 'Western Asia'),
+('TM', 'TKM', 488100, 'Ashgabat', 'Turkmenistan', 6031187, 'Asia', 'Central Asia'),
+('UG', 'UGA', 241550, 'Kampala', 'Uganda', 45741000, 'Africa', 'Eastern Africa'),
+('UA', 'UKR', 603700, 'Kyiv', 'Ukraine', 44134693, 'Europe', 'Eastern Europe'),
+('AE', 'ARE', 83600, 'Abu Dhabi', 'United Arab Emirates', 9890400, 'Asia', 'Western Asia'),
+('US', 'USA', 9629091, 'Washington, D.C.', 'United States of America', 329484123, 'Americas', 'Northern America'),
+('UY', 'URY', 181034, 'Montevideo', 'Uruguay', 3473727, 'Americas', 'South America'),
+('UZ', 'UZB', 447400, 'Tashkent', 'Uzbekistan', 34232050, 'Asia', 'Central Asia'),
+('VE', 'VEN', 916445, 'Caracas', 'Venezuela (Bolivarian Republic of)', 28435943, 'Americas', 'South America'),
+('VN', 'VNM', 331212, 'Hanoi', 'Vietnam', 97338583, 'Asia', 'South-Eastern Asia'),
+('YE', 'YEM', 527968, 'Sana''a', 'Yemen', 29825968, 'Asia', 'Western Asia'),
+('ZM', 'ZMB', 752612, 'Lusaka', 'Zambia', 18383956, 'Africa', 'Eastern Africa'),
+('ZW', 'ZWE', 390757, 'Harare', 'Zimbabwe', 14862927, 'Africa', 'Eastern Africa') [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:786)
+	at org.h2.command.Parser.parseColumn(Parser.java:1171)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1156)
+	at org.h2.command.Parser.parseInsert(Parser.java:1530)
+	at org.h2.command.Parser.parsePrepared(Parser.java:698)
+	at org.h2.command.Parser.parse(Parser.java:581)
+	at org.h2.command.Parser.parse(Parser.java:556)
+	at org.h2.command.Parser.prepareCommand(Parser.java:484)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:235)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:229)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2025-06-23 10:06:17.866419+02:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "ALPHA3CODE" not found; SQL statement:
+INSERT INTO countries (alpha2Code, alpha3Code, area, capital, name, population, region, subregion) VALUES
+('AF', 'AFG', 652230, 'Kabul', 'Afghanistan', 38928341, 'Asia', 'Southern Asia'),
+('AL', 'ALB', 28748, 'Tirana', 'Albania', 2837743, 'Europe', 'Southern Europe'),
+('DZ', 'DZA', 2381741, 'Algiers', 'Algeria', 43851043, 'Africa', 'Northern Africa'),
+('AO', 'AGO', 1246700, 'Luanda', 'Angola', 32866268, 'Africa', 'Middle Africa'),
+('AR', 'ARG', 2780400, 'Buenos Aires', 'Argentina', 45376763, 'Americas', 'South America'),
+('AM', 'ARM', 29743, 'Yerevan', 'Armenia', 2963234, 'Asia', 'Western Asia'),
+('AU', 'AUS', 7692024, 'Canberra', 'Australia', 25687041, 'Oceania', 'Australia and New Zealand'),
+('AT', 'AUT', 83871, 'Vienna', 'Austria', 8917205, 'Europe', 'Western Europe'),
+('AZ', 'AZE', 86600, 'Baku', 'Azerbaijan', 10110116, 'Asia', 'Western Asia'),
+('BH', 'BHR', 765, 'Manama', 'Bahrain', 1701583, 'Asia', 'Western Asia'),
+('BD', 'BGD', 147570, 'Dhaka', 'Bangladesh', 164689383, 'Asia', 'Southern Asia'),
+('BY', 'BLR', 207600, 'Minsk', 'Belarus', 9398861, 'Europe', 'Eastern Europe'),
+('BE', 'BEL', 30528, 'Brussels', 'Belgium', 11555997, 'Europe', 'Western Europe'),
+('BZ', 'BLZ', 22966, 'Belmopan', 'Belize', 397621, 'Americas', 'Central America'),
+('BJ', 'BEN', 112622, 'Porto-Novo', 'Benin', 12123198, 'Africa', 'Western Africa'),
+('BT', 'BTN', 38394, 'Thimphu', 'Bhutan', 771612, 'Asia', 'Southern Asia'),
+('BO', 'BOL', 1098581, 'Sucre', 'Bolivia (Plurinational State of)', 11673029, 'Americas', 'South America'),
+('BA', 'BIH', 51209, 'Sarajevo', 'Bosnia and Herzegovina', 3280815, 'Europe', 'Southern Europe'),
+('BW', 'BWA', 582000, 'Gaborone', 'Botswana', 2351625, 'Africa', 'Southern Africa'),
+('BR', 'BRA', 8515767, 'Brasília', 'Brazil', 212559409, 'Americas', 'South America'),
+('BG', 'BGR', 110879, 'Sofia', 'Bulgaria', 6927288, 'Europe', 'Eastern Europe'),
+('BF', 'BFA', 272967, 'Ouagadougou', 'Burkina Faso', 20903278, 'Africa', 'Western Africa'),
+('BI', 'BDI', 27834, 'Gitega', 'Burundi', 11890781, 'Africa', 'Eastern Africa'),
+('KH', 'KHM', 181035, 'Phnom Penh', 'Cambodia', 16718971, 'Asia', 'South-Eastern Asia'),
+('CM', 'CMR', 475442, 'Yaoundé', 'Cameroon', 26545864, 'Africa', 'Middle Africa'),
+('CA', 'CAN', 9984670, 'Ottawa', 'Canada', 38005238, 'Americas', 'Northern America'),
+('CV', 'CPV', 4033, 'Praia', 'Cabo Verde', 555988, 'Africa', 'Western Africa'),
+('CF', 'CAF', 622984, 'Bangui', 'Central African Republic', 4829764, 'Africa', 'Middle Africa'),
+('TD', 'TCD', 1284000, 'N''Djamena', 'Chad', 16425859, 'Africa', 'Middle Africa'),
+('CL', 'CHL', 756102, 'Santiago', 'Chile', 19116209, 'Americas', 'South America'),
+('CN', 'CHN', 9640011, 'Beijing', 'China', 1402112000, 'Asia', 'Eastern Asia'),
+('CO', 'COL', 1141748, 'Bogotá', 'Colombia', 50882884, 'Americas', 'South America'),
+('KM', 'COM', 1862, 'Moroni', 'Comoros', 869595, 'Africa', 'Eastern Africa'),
+('CG', 'COG', 342000, 'Brazzaville', 'Congo', 5518092, 'Africa', 'Middle Africa'),
+('CR', 'CRI', 51100, 'San José', 'Costa Rica', 5094114, 'Americas', 'Central America'),
+('HR', 'HRV', 56594, 'Zagreb', 'Croatia', 4047200, 'Europe', 'Southern Europe'),
+('CU', 'CUB', 109884, 'Havana', 'Cuba', 11326616, 'Americas', 'Caribbean'),
+('CY', 'CYP', 9251, 'Nicosia', 'Cyprus', 1207361, 'Europe', 'Southern Europe'),
+('CZ', 'CZE', 78865, 'Prague', 'Czech Republic', 10698896, 'Europe', 'Eastern Europe'),
+('DK', 'DNK', 43094, 'Copenhagen', 'Denmark', 5831404, 'Europe', 'Northern Europe'),
+('DJ', 'DJI', 23200, 'Djibouti', 'Djibouti', 988002, 'Africa', 'Eastern Africa'),
+('DO', 'DOM', 48671, 'Santo Domingo', 'Dominican Republic', 10847904, 'Americas', 'Caribbean'),
+('EC', 'ECU', 276841, 'Quito', 'Ecuador', 17643060, 'Americas', 'South America'),
+('EG', 'EGY', 1002450, 'Cairo', 'Egypt', 102334403, 'Africa', 'Northern Africa'),
+('SV', 'SLV', 21041, 'San Salvador', 'El Salvador', 6486201, 'Americas', 'Central America'),
+('GQ', 'GNQ', 28051, 'Malabo', 'Equatorial Guinea', 1402985, 'Africa', 'Middle Africa'),
+('EE', 'EST', 45227, 'Tallinn', 'Estonia', 1331057, 'Europe', 'Northern Europe'),
+('ET', 'ETH', 1104300, 'Addis Ababa', 'Ethiopia', 114963583, 'Africa', 'Eastern Africa'),
+('FJ', 'FJI', 18272, 'Suva', 'Fiji', 896444, 'Oceania', 'Melanesia'),
+('FI', 'FIN', 338424, 'Helsinki', 'Finland', 5530719, 'Europe', 'Northern Europe'),
+('FR', 'FRA', 640679, 'Paris', 'France', 67391582, 'Europe', 'Western Europe'),
+('GA', 'GAB', 267668, 'Libreville', 'Gabon', 2225728, 'Africa', 'Middle Africa'),
+('GE', 'GEO', 69700, 'Tbilisi', 'Georgia', 3714000, 'Asia', 'Western Asia'),
+('DE', 'DEU', 357114, 'Berlin', 'Germany', 83240525, 'Europe', 'Western Europe'),
+('GH', 'GHA', 238533, 'Accra', 'Ghana', 31072945, 'Africa', 'Western Africa'),
+('GR', 'GRC', 131990, 'Athens', 'Greece', 10715549, 'Europe', 'Southern Europe'),
+('GT', 'GTM', 108889, 'Guatemala City', 'Guatemala', 16858333, 'Americas', 'Central America'),
+('GN', 'GIN', 245857, 'Conakry', 'Guinea', 13132792, 'Africa', 'Western Africa'),
+('GW', 'GNB', 36125, 'Bissau', 'Guinea-Bissau', 1967998, 'Africa', 'Western Africa'),
+('GY', 'GUY', 214969, 'Georgetown', 'Guyana', 786559, 'Americas', 'South America'),
+('HT', 'HTI', 27750, 'Port-au-Prince', 'Haiti', 11402533, 'Americas', 'Caribbean'),
+('VA', 'VAT', 0, 'Vatican City', 'Vatican City', 451, 'Europe', 'Southern Europe'),
+('HN', 'HND', 112492, 'Tegucigalpa', 'Honduras', 9904608, 'Americas', 'Central America'),
+('HK', 'HKG', 1104, 'City of Victoria', 'Hong Kong', 7481800, 'Asia', 'Eastern Asia'),
+('HU', 'HUN', 93028, 'Budapest', 'Hungary', 9749763, 'Europe', 'Eastern Europe'),
+('IS', 'ISL', 103000, 'Reykjavík', 'Iceland', 366425, 'Europe', 'Northern Europe'),
+('IN', 'IND', 3287590, 'New Delhi', 'India', 1380004385, 'Asia', 'Southern Asia'),
+('ID', 'IDN', 1904569, 'Jakarta', 'Indonesia', 273523621, 'Asia', 'South-Eastern Asia'),
+('CI', 'CIV', 322463, 'Yamoussoukro', 'Côte d''Ivoire', 26378275, 'Africa', 'Western Africa'),
+('IR', 'IRN', 1648195, 'Tehran', 'Iran (Islamic Republic of)', 83992953, 'Asia', 'Southern Asia'),
+('IQ', 'IRQ', 438317, 'Baghdad', 'Iraq', 40222503, 'Asia', 'Western Asia'),
+('IE', 'IRL', 70273, 'Dublin', 'Ireland', 4994724, 'Europe', 'Northern Europe'),
+('IL', 'ISR', 20770, 'Jerusalem', 'Israel', 9216900, 'Asia', 'Western Asia'),
+('IT', 'ITA', 301336, 'Rome', 'Italy', 59554023, 'Europe', 'Southern Europe'),
+('JM', 'JAM', 10991, 'Kingston', 'Jamaica', 2961161, 'Americas', 'Caribbean'),
+('JP', 'JPN', 377930, 'Tokyo', 'Japan', 125836021, 'Asia', 'Eastern Asia'),
+('JO', 'JOR', 89342, 'Amman', 'Jordan', 10203140, 'Asia', 'Western Asia'),
+('KZ', 'KAZ', 2724900, 'Nur-Sultan', 'Kazakhstan', 18754440, 'Asia', 'Central Asia'),
+('KE', 'KEN', 580367, 'Nairobi', 'Kenya', 53771300, 'Africa', 'Eastern Africa'),
+('KW', 'KWT', 17818, 'Kuwait City', 'Kuwait', 4270563, 'Asia', 'Western Asia'),
+('KG', 'KGZ', 199951, 'Bishkek', 'Kyrgyzstan', 6591600, 'Asia', 'Central Asia'),
+('LA', 'LAO', 236800, 'Vientiane', 'Lao People''s Democratic Republic', 7275556, 'Asia', 'South-Eastern Asia'),
+('LV', 'LVA', 64559, 'Riga', 'Latvia', 1901548, 'Europe', 'Northern Europe'),
+('LB', 'LBN', 10452, 'Beirut', 'Lebanon', 6825442, 'Asia', 'Western Asia'),
+('LS', 'LSO', 30355, 'Maseru', 'Lesotho', 2142252, 'Africa', 'Southern Africa'),
+('LR', 'LBR', 111369, 'Monrovia', 'Liberia', 5057677, 'Africa', 'Western Africa'),
+('LY', 'LBY', 1759540, 'Tripoli', 'Libya', 6871287, 'Africa', 'Northern Africa'),
+('LT', 'LTU', 65300, 'Vilnius', 'Lithuania', 2794700, 'Europe', 'Northern Europe'),
+('LU', 'LUX', 2586, 'Luxembourg', 'Luxembourg', 632275, 'Europe', 'Western Europe'),
+('MK', 'MKD', 25713, 'Skopje', 'North Macedonia', 2083380, 'Europe', 'Southern Europe'),
+('MG', 'MDG', 587041, 'Antananarivo', 'Madagascar', 27691019, 'Africa', 'Eastern Africa'),
+('MW', 'MWI', 118484, 'Lilongwe', 'Malawi', 19129955, 'Africa', 'Eastern Africa'),
+('MY', 'MYS', 330803, 'Kuala Lumpur', 'Malaysia', 32365998, 'Asia', 'South-Eastern Asia'),
+('MV', 'MDV', 300, 'Malé', 'Maldives', 540542, 'Asia', 'Southern Asia'),
+('ML', 'MLI', 1240192, 'Bamako', 'Mali', 20250834, 'Africa', 'Western Africa'),
+('MT', 'MLT', 316, 'Valletta', 'Malta', 525285, 'Europe', 'Southern Europe'),
+('MR', 'MRT', 1030700, 'Nouakchott', 'Mauritania', 4649660, 'Africa', 'Western Africa'),
+('MU', 'MUS', 2040, 'Port Louis', 'Mauritius', 1265740, 'Africa', 'Eastern Africa'),
+('MX', 'MEX', 1964375, 'Mexico City', 'Mexico', 128932753, 'Americas', 'Central America'),
+('MD', 'MDA', 33846, 'Chișinău', 'Moldova (Republic of)', 2617820, 'Europe', 'Eastern Europe'),
+('MN', 'MNG', 1564110, 'Ulan Bator', 'Mongolia', 3278292, 'Asia', 'Eastern Asia'),
+('ME', 'MNE', 13812, 'Podgorica', 'Montenegro', 621718, 'Europe', 'Southern Europe'),
+('MA', 'MAR', 446550, 'Rabat', 'Morocco', 36910558, 'Africa', 'Northern Africa'),
+('MZ', 'MOZ', 801590, 'Maputo', 'Mozambique', 31255435, 'Africa', 'Eastern Africa'),
+('MM', 'MMR', 676578, 'Naypyidaw', 'Myanmar', 54409794, 'Asia', 'South-Eastern Asia'),
+('NA', 'NAM', 825615, 'Windhoek', 'Namibia', 2540916, 'Africa', 'Southern Africa'),
+('NP', 'NPL', 147181, 'Kathmandu', 'Nepal', 29136808, 'Asia', 'Southern Asia'),
+('NL', 'NLD', 41850, 'Amsterdam', 'Netherlands', 17441139, 'Europe', 'Western Europe'),
+('NZ', 'NZL', 270467, 'Wellington', 'New Zealand', 5084300, 'Oceania', 'Australia and New Zealand'),
+('NI', 'NIC', 130373, 'Managua', 'Nicaragua', 6624554, 'Americas', 'Central America'),
+('NE', 'NER', 1267000, 'Niamey', 'Niger', 24206636, 'Africa', 'Western Africa'),
+('NG', 'NGA', 923768, 'Abuja', 'Nigeria', 206139587, 'Africa', 'Western Africa'),
+('KP', 'PRK', 120538, 'Pyongyang', 'Korea (Democratic People''s Republic of)', 25778815, 'Asia', 'Eastern Asia'),
+('NO', 'NOR', 323802, 'Oslo', 'Norway', 5379475, 'Europe', 'Northern Europe'),
+('OM', 'OMN', 309500, 'Muscat', 'Oman', 5106622, 'Asia', 'Western Asia'),
+('PK', 'PAK', 881912, 'Islamabad', 'Pakistan', 220892331, 'Asia', 'Southern Asia'),
+('PA', 'PAN', 75417, 'Panama City', 'Panama', 4314768, 'Americas', 'Central America'),
+('PG', 'PNG', 462840, 'Port Moresby', 'Papua New Guinea', 8947027, 'Oceania', 'Melanesia'),
+('PY', 'PRY', 406752, 'Asunción', 'Paraguay', 7132530, 'Americas', 'South America'),
+('PE', 'PER', 1285216, 'Lima', 'Peru', 32971846, 'Americas', 'South America'),
+('PH', 'PHL', 342353, 'Manila', 'Philippines', 109581085, 'Asia', 'South-Eastern Asia'),
+('PL', 'POL', 312679, 'Warsaw', 'Poland', 37950802, 'Europe', 'Eastern Europe'),
+('PT', 'PRT', 92090, 'Lisbon', 'Portugal', 10305564, 'Europe', 'Southern Europe'),
+('QA', 'QAT', 11586, 'Doha', 'Qatar', 2881060, 'Asia', 'Western Asia'),
+('RO', 'ROU', 238391, 'Bucharest', 'Romania', 19286123, 'Europe', 'Eastern Europe'),
+('RU', 'RUS', 17124442, 'Moscow', 'Russian Federation', 144104080, 'Europe', 'Eastern Europe'),
+('RW', 'RWA', 26338, 'Kigali', 'Rwanda', 12952209, 'Africa', 'Eastern Africa'),
+('LC', 'LCA', 616, 'Castries', 'Saint Lucia', 183629, 'Americas', 'Caribbean'),
+('ST', 'STP', 964, 'São Tomé', 'Sao Tome and Principe', 219161, 'Africa', 'Middle Africa'),
+('SA', 'SAU', 2149690, 'Riyadh', 'Saudi Arabia', 34813867, 'Asia', 'Western Asia'),
+('SN', 'SEN', 196722, 'Dakar', 'Senegal', 16743930, 'Africa', 'Western Africa'),
+('RS', 'SRB', 88361, 'Belgrade', 'Serbia', 6908224, 'Europe', 'Southern Europe'),
+('SC', 'SYC', 452, 'Victoria', 'Seychelles', 98462, 'Africa', 'Eastern Africa'),
+('SL', 'SLE', 71740, 'Freetown', 'Sierra Leone', 7976985, 'Africa', 'Western Africa'),
+('SG', 'SGP', 710, 'Singapore', 'Singapore', 5685807, 'Asia', 'South-Eastern Asia'),
+('SK', 'SVK', 49037, 'Bratislava', 'Slovakia', 5458827, 'Europe', 'Eastern Europe'),
+('SI', 'SVN', 20273, 'Ljubljana', 'Slovenia', 2100126, 'Europe', 'Southern Europe'),
+('SO', 'SOM', 637657, 'Mogadishu', 'Somalia', 15893219, 'Africa', 'Eastern Africa'),
+('ZA', 'ZAF', 1221037, 'Pretoria', 'South Africa', 59308690, 'Africa', 'Southern Africa'),
+('KR', 'KOR', 100210, 'Seoul', 'Korea (Republic of)', 51780579, 'Asia', 'Eastern Asia'),
+('SS', 'SSD', 619745, 'Juba', 'South Sudan', 11193729, 'Africa', 'Middle Africa'),
+('ES', 'ESP', 505992, 'Madrid', 'Spain', 47351567, 'Europe', 'Southern Europe'),
+('LK', 'LKA', 65610, 'Sri Jayawardenepura Kotte', 'Sri Lanka', 21919000, 'Asia', 'Southern Asia'),
+('SD', 'SDN', 1886068, 'Khartoum', 'Sudan', 43849269, 'Africa', 'Northern Africa'),
+('SR', 'SUR', 163820, 'Paramaribo', 'Suriname', 586634, 'Americas', 'South America'),
+('SZ', 'SWZ', 17364, 'Mbabane', 'Eswatini', 1160164, 'Africa', 'Southern Africa'),
+('SE', 'SWE', 450295, 'Stockholm', 'Sweden', 10353442, 'Europe', 'Northern Europe'),
+('CH', 'CHE', 41284, 'Bern', 'Switzerland', 8636896, 'Europe', 'Western Europe'),
+('SY', 'SYR', 185180, 'Damascus', 'Syrian Arab Republic', 17500657, 'Asia', 'Western Asia'),
+('TW', 'TWN', 36193, 'Taipei', 'Taiwan', 23503349, 'Asia', 'Eastern Asia'),
+('TJ', 'TJK', 143100, 'Dushanbe', 'Tajikistan', 9537642, 'Asia', 'Central Asia'),
+('TZ', 'TZA', 945087, 'Dodoma', 'Tanzania, United Republic of', 59734213, 'Africa', 'Eastern Africa'),
+('TH', 'THA', 513120, 'Bangkok', 'Thailand', 69799978, 'Asia', 'South-Eastern Asia'),
+('TL', 'TLS', 14874, 'Dili', 'Timor-Leste', 1318442, 'Asia', 'South-Eastern Asia'),
+('TG', 'TGO', 56785, 'Lomé', 'Togo', 8278737, 'Africa', 'Western Africa'),
+('TT', 'TTO', 5130, 'Port of Spain', 'Trinidad and Tobago', 1399491, 'Americas', 'Caribbean'),
+('TN', 'TUN', 163610, 'Tunis', 'Tunisia', 11818618, 'Africa', 'Northern Africa'),
+('TR', 'TUR', 783562, 'Ankara', 'Turkey', 84339067, 'Asia', 'Western Asia'),
+('TM', 'TKM', 488100, 'Ashgabat', 'Turkmenistan', 6031187, 'Asia', 'Central Asia'),
+('UG', 'UGA', 241550, 'Kampala', 'Uganda', 45741000, 'Africa', 'Eastern Africa'),
+('UA', 'UKR', 603700, 'Kyiv', 'Ukraine', 44134693, 'Europe', 'Eastern Europe'),
+('AE', 'ARE', 83600, 'Abu Dhabi', 'United Arab Emirates', 9890400, 'Asia', 'Western Asia'),
+('US', 'USA', 9629091, 'Washington, D.C.', 'United States of America', 329484123, 'Americas', 'Northern America'),
+('UY', 'URY', 181034, 'Montevideo', 'Uruguay', 3473727, 'Americas', 'South America'),
+('UZ', 'UZB', 447400, 'Tashkent', 'Uzbekistan', 34232050, 'Asia', 'Central Asia'),
+('VE', 'VEN', 916445, 'Caracas', 'Venezuela (Bolivarian Republic of)', 28435943, 'Americas', 'South America'),
+('VN', 'VNM', 331212, 'Hanoi', 'Vietnam', 97338583, 'Asia', 'South-Eastern Asia'),
+('YE', 'YEM', 527968, 'Sana''a', 'Yemen', 29825968, 'Asia', 'Western Asia'),
+('ZM', 'ZMB', 752612, 'Lusaka', 'Zambia', 18383956, 'Africa', 'Eastern Africa'),
+('ZW', 'ZWE', 390757, 'Harare', 'Zimbabwe', 14862927, 'Africa', 'Eastern Africa') [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:786)
+	at org.h2.command.Parser.parseColumn(Parser.java:1171)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1156)
+	at org.h2.command.Parser.parseInsert(Parser.java:1530)
+	at org.h2.command.Parser.parsePrepared(Parser.java:698)
+	at org.h2.command.Parser.parse(Parser.java:581)
+	at org.h2.command.Parser.parse(Parser.java:556)
+	at org.h2.command.Parser.prepareCommand(Parser.java:484)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp.query(WebApp.java:1118)
+	at org.h2.server.web.WebApp.process(WebApp.java:244)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:235)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:229)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+2025-06-23 10:07:06.758192+02:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]POINTS"; expected "PREPARE"; SQL statement:
+POINTS [42001-232]
