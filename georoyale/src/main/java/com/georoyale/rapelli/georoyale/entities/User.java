@@ -17,21 +17,14 @@ public class User {
     @Column(name = "id_user")
     private Long id;
     
-    @Column(name = "username", length = 25)
+    @Column(name = "username", length = 25, unique = true, nullable = false)
     private String username;
     
-    @Column(name = "password", length = 255)
+    @Column(name = "password", length = 255, nullable = false)
     private String password;
     
     @Column(name = "id_point")
     private Integer idPoint;
-    
-    // Campi transient per funzionalità aggiuntive
-    @Transient
-    private String role = "USER";
-    
-    @Transient
-    private boolean enabled = true;
     
     @Transient
     private int totalQuizzes = 0;

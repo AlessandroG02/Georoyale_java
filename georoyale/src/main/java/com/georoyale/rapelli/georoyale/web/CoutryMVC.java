@@ -142,7 +142,6 @@ public class CoutryMVC {
                 user.setIdPoint(savedPoints.getIdPoint().intValue());
                 userRepo.save(user);
 
-                System.out.println("Punteggio salvato: " + score + " punti per " + username + " in " + quizType);
             }
         } catch (Exception e) {
             System.err.println("Errore nel salvataggio punteggio: " + e.getMessage());
@@ -311,7 +310,7 @@ public class CoutryMVC {
         addSessionStats(session, m);
         return "allenamento_capitale";
     }
-
+    
     @PostMapping("allenamento_capitale_answer")
     public String processAllenamentoCapitaleAnswer(
             @RequestParam String correctAnswer,
@@ -1162,6 +1161,7 @@ public class CoutryMVC {
 
         // Controlla se l'utente ha scelto correttamente
         boolean isCorrect = selectedCountry.equals(correctCountryCode);
+        
 
         return processSessionAnswer("higher_lower", correctCountryName,
                 selectedCountry.equals(country1Code) ? country1.getName() : country2.getName(),

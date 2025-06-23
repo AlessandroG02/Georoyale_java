@@ -24,7 +24,6 @@ public class CountryServiceImpl implements CountryService {
     public Country getRandomCountry() {
         List<Country> listaPaesi = repo.findAll();
         
-        // CONTROLLO SICUREZZA - Lista vuota
         if (listaPaesi == null || listaPaesi.isEmpty()) {
             throw new RuntimeException("Nessun paese trovato nel database! Controlla la tabella 'countries'.");
         }

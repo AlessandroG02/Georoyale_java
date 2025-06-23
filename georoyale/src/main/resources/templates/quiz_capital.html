@@ -19,29 +19,15 @@
     </nav>
     
     <div class="container">
-        <h1> Guess the Capital</h1>
-        
-        <div th:if="${isSession == null or !isSession}" class="difficulty-selector">
-            <h3> Scegli la difficoltà:</h3>
-            <div class="difficulty-buttons">
-                <a th:href="@{/quiz_capital(difficulty='facile')}" 
-                   th:class="${difficulty == 'facile'} ? 'difficulty-btn active' : 'difficulty-btn'">
-                    Facile (Solo Europa)
-                </a>
-                <a th:href="@{/quiz_capital(difficulty='difficile')}" 
-                   th:class="${difficulty == 'difficile'} ? 'difficulty-btn active' : 'difficulty-btn'">
-                     Difficile (Mondo)
-                </a>
-            </div>
-        </div>
+        <h1>Guess the Capital</h1>
         
         <div th:if="${isSession != null and isSession}" class="session-info">
             <div class="session-progress">
                 <h3>
-                     Domanda <span th:text="${currentQuestionNumber}">1</span> di <span th:text="${totalQuestions}">10</span>
+                    Domanda <span th:text="${currentQuestionNumber}">1</span> di <span th:text="${totalQuestions}">10</span>
                 </h3>
                 <div class="session-score">
-                     Punteggio: <span th:text="${sessionScore}">0</span> punti
+                    Punteggio: <span th:text="${sessionScore}">0</span> punti
                 </div>
             </div>
             
@@ -52,15 +38,6 @@
             <div class="progress-text">
                 Progresso: <span th:text="${currentQuestionNumber - 1}">0</span>/10 domande completate
             </div>
-        </div>
-        
-        <div class="current-difficulty">
-            <span th:if="${difficulty == 'facile'}" class="difficulty-badge easy">
-                 Modalità Facile - Solo Paesi Europei
-            </span>
-            <span th:if="${difficulty == 'difficile'}" class="difficulty-badge hard">
-                 Modalità Difficile - Tutto il Mondo
-            </span>
         </div>
         
         <div class="flag-container">
@@ -74,7 +51,6 @@
         <form method="post" th:action="@{${(isSession != null and isSession) ? '/quiz_capital_session_answer' : '/quiz_capital_answer'}}">
             <input type="hidden" name="countryCode" th:value="${countryCode}">
             <input type="hidden" name="correctAnswer" th:value="${correctCapital}">
-            <input type="hidden" name="difficulty" th:value="${difficulty}">
             
             <div class="options-grid">
                 <div th:each="option, iterStat : ${options}" class="option-wrapper">
@@ -88,31 +64,17 @@
         </form>
         
         <div th:if="${isSession != null and isSession}" class="session-hint">
-            <p> <strong>Ogni risposta corretta vale 10 punti!</strong></p>
-            <p> Ancora <span th:text="${totalQuestions - currentQuestionNumber + 1}">X</span> domande per completare la sessione.</p>
+            <p><strong>Ogni risposta corretta vale 10 punti!</strong></p>
+            <p>Ancora <span th:text="${totalQuestions - currentQuestionNumber + 1}">X</span> domande per completare la sessione.</p>
         </div>
         
         <div class="button-row">
             <a th:href="@{/quiz}">
                 <button class="nav-button">← Torna ai Quiz</button>
             </a>
-            <a th:href="@{/quiz_capital(difficulty=${difficulty})}" th:if="${isSession == null or !isSession}">
-                <button class="nav-button primary"> Nuova Domanda</button>
+            <a th:href="@{/quiz_capital}" th:if="${isSession == null or !isSession}">
+                <button class="nav-button primary">Nuova Domanda</button>
             </a>
-        </div>
-        
-        <div th:if="${isSession == null or !isSession}" class="difficulty-info">
-            <div th:if="${difficulty == 'facile'}" class="info-card easy">
-                <h4> Modalità Facile</h4>
-                <p>Stai giocando solo con <strong>paesi europei</strong>. Perfetto per iniziare!</p>
-                <small>Vuoi una sfida maggiore? <a th:href="@{/quiz_capital(difficulty='difficile')}">Prova la modalità difficile</a></small>
-            </div>
-            
-            <div th:if="${difficulty == 'difficile'}" class="info-card hard">
-                <h4> Modalità Difficile</h4>
-                <p>Stai sfidando la tua conoscenza con <strong>tutti i paesi del mondo</strong>!</p>
-                <small>Troppo difficile? <a th:href="@{/quiz_capital(difficulty='facile')}">Prova la modalità facile</a></small>
-            </div>
         </div>
     </div>
 </body>

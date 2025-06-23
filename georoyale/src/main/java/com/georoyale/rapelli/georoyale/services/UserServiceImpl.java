@@ -19,10 +19,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public User createUser(String username, String password) {
         try {
-            System.out.println("=== CREAZIONE UTENTE ===");
-            System.out.println("Username: " + username);
-            System.out.println("Password length: " + password.length());
-            
             if (usernameExists(username)) {
                 throw new RuntimeException("Username già esistente: " + username);
             }
@@ -38,15 +34,11 @@ public class UserServiceImpl implements UserService {
             User user = new User();
             user.setUsername(username.trim());
             user.setPassword(passwordEncoder.encode(password));
-            user.setIdPoint(0); 
+            user.setIdPoint(0);
             
-            User savedUser = userRepo.save(user);
-            System.out.println(" Utente creato con successo! ID: " + savedUser.getId());
-            return savedUser;
+            return userRepo.save(user);
             
         } catch (Exception e) {
-            System.err.println(" Errore nella creazione utente: " + e.getMessage());
-            e.printStackTrace();
             throw new RuntimeException("Errore nella registrazione: " + e.getMessage());
         }
     }

@@ -24,12 +24,10 @@ public class Points {
     @Column(name = "tot_point")
     private Integer totPoint;
     
-    // Relazione con User - aggiungi colonna user_id nella tabella points
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
     
-    // Costruttore per creare rapidamente un record points
     public Points(User user, Integer totPoint) {
         this.user = user;
         this.totPoint = totPoint;

@@ -24,7 +24,6 @@ public class Country {
 	private String capital;
 	private String region;
 	
-	// Campo per Higher or Lower - DEVE esistere nel database
 	private Long population;
 	
 	@Transient 
